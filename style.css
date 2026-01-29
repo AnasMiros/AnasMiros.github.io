@@ -108,7 +108,7 @@ section {
     max-width: 1900px;
     margin: auto;
     text-align: center;
-    background: #cc0000; /* Einheitlich mit Body/ Header */
+    background: white; /* Einheitlich mit Body/ Header */
 }
 
 section h2 {
