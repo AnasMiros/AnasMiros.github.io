@@ -7,7 +7,7 @@
 
 body {
     font-family: "Inter", Arial, sans-serif;
-    background: #f4f6f8;
+    background: red; /* Hintergrund auf rot geändert */
     color: white;
     line-height: 1.6;
 }
@@ -123,8 +123,8 @@ section h2 {
 
 .card {
     background: white;
-    width: 600px;
-    max-width: 100%;
+    width: 800px; /* breiter in X-Richtung */
+    max-width: 90%; /* für kleinere Bildschirme */
     padding: 2rem;
     border-radius: 20px;
     box-shadow: 0 8px 20px rgba(0,0,0,0.1);
@@ -225,6 +225,6 @@ footer {
     }
 
     .card {
-        width: 90%;
+        width: 90%; /* passt sich auf kleinen Bildschirmen an */
     }
 }
