@@ -862,7 +862,7 @@ footer {
         max-width: 350px;
         min-width: auto;
     }
-<section id="fight-scene" style="background:#222; color:#fff; padding:4rem; text-align:center;">
+<section id="fight-scene">
   <h2>Creativity vs Technology</h2>
   <div class="arena">
     <div class="fighter creativity">Creativity</div>
@@ -875,53 +875,43 @@ footer {
   position: relative;
   width: 100%;
   max-width: 800px;
-  height: 200px;
+  height: 100px;
   margin: 2rem auto;
-  background: #333;
-  border-radius: 15px;
-  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .fighter {
-  position: absolute;
-  bottom: 20px;
-  width: 120px;
-  height: 120px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   font-weight: bold;
   color: white;
-  border-radius: 50%;
+  padding: 1rem 2rem;
   cursor: pointer;
+  font-size: 1.5rem;
 }
 
 .creativity {
-  left: 0;
   background: linear-gradient(45deg, #ff66cc, #ffcc66);
 }
 
 .technology {
-  right: 0;
   background: linear-gradient(45deg, #66ccff, #66ffcc);
 }
 
 .sword {
   position: absolute;
-  width: 10px;
-  height: 100px;
-  top: 10px;
+  width: 4px;
+  height: 80px;
   background: yellow;
   transform-origin: bottom center;
-  z-index: 1;
 }
 
-@keyframes clash {
+@keyframes clashLeft {
   0%, 100% { transform: translateX(0) rotate(0deg); }
   50% { transform: translateX(200px) rotate(45deg); }
 }
 
-@keyframes clashTech {
+@keyframes clashRight {
   0%, 100% { transform: translateX(0) rotate(0deg); }
   50% { transform: translateX(-200px) rotate(-45deg); }
 }
@@ -942,8 +932,8 @@ document.addEventListener("DOMContentLoaded", function() {
   technology.appendChild(swordT);
 
   function clash() {
-    swordC.style.animation = "clash 1s ease-in-out forwards";
-    swordT.style.animation = "clashTech 1s ease-in-out forwards";
+    swordC.style.animation = "clashLeft 1s ease-in-out forwards";
+    swordT.style.animation = "clashRight 1s ease-in-out forwards";
 
     // Zurücksetzen nach Animation
     setTimeout(() => {
@@ -956,5 +946,4 @@ document.addEventListener("DOMContentLoaded", function() {
   setInterval(clash, 2000);
 });
 </script>
-
 }
