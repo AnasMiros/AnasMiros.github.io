@@ -64,7 +64,7 @@ nav {
 header {
     min-height: 90vh;
     background: linear-gradient(135deg, #cc0000, #ff3333); /* ROTER Gradient */
-    color: white; /* WEIßER Text */
+    color: red; /* WEIßER Text */
     text-align: center;
     padding: 4rem 1rem;
     display: flex;
