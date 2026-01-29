@@ -2,68 +2,83 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <title>Anas | Portfolio</title>
+
+    <!-- Fallback Font für alle Browser -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <nav>
-        <div class="logo">Anas</div>
-        <ul>
-            <li><a href="#about">Über mich</a></li>
-            <li><a href="#projects">Projekte</a></li>
-            <li><a href="#contact">Kontakt</a></li>
-        </ul>
-    </nav>
+<nav>
+    <div class="logo">Anas</div>
+    <button class="menu-toggle" aria-label="Menü öffnen">☰</button>
 
-    <header>
-        <h1>Hi, ich bin Anas 👋</h1>
-        <p>Web Entwickler | Designer | Technik-Enthusiast</p>
-        <a class="button" href="#projects">Meine Projekte</a>
-    </header>
+    <ul class="nav-links">
+        <li><a href="#about">Über mich</a></li>
+        <li><a href="#projects">Projekte</a></li>
+        <li><a href="#contact">Kontakt</a></li>
+    </ul>
+</nav>
 
-    <section id="about">
-        <h2>Über mich</h2>
-        <p>
-            Ich entwickle moderne Webseiten und kreative Projekte mit HTML, CSS und JavaScript.
-            Mein Fokus liegt auf cleanem Design und Benutzerfreundlichkeit.
-        </p>
-    </section>
+<header>
+    <h1>Hi, ich bin Anas 👋</h1>
+    <p>Web Entwickler | Designer | Technik-Fan</p>
+    <a class="button" href="#projects">Meine Projekte</a>
+</header>
 
-    <section id="projects">
-        <h2>Projekte</h2>
+<section id="about">
+    <h2>Über mich</h2>
+    <p>
+        Ich baue moderne Webseiten mit Fokus auf Performance, Design und Kompatibilität
+        auf allen Geräten und Browsern.
+    </p>
+</section>
 
-        <div class="cards">
-            <div class="card">
-                <h3>🌦 Wetter App</h3>
-                <p>Eine App, die das aktuelle Wetter per API anzeigt.</p>
-                <a href="#">Ansehen</a>
-            </div>
+<section id="projects">
+    <h2>Projekte</h2>
 
-            <div class="card">
-                <h3>📝 ToDo App</h3>
-                <p>Minimalistische Aufgabenverwaltung im Browser.</p>
-                <a href="#">Ansehen</a>
-            </div>
-
-            <div class="card">
-                <h3>🎮 Game Projekt</h3>
-                <p>Kleines Webgame mit JavaScript.</p>
-                <a href="#">Ansehen</a>
-            </div>
+    <div class="cards">
+        <div class="card">
+            <h3>🌦 Wetter App</h3>
+            <p>Wetterdaten per API in Echtzeit.</p>
+            <a href="#">Ansehen</a>
         </div>
-    </section>
 
-    <section id="contact">
-        <h2>Kontakt</h2>
-        <p>Schreib mir gerne eine Nachricht:</p>
-        <a class="button" href="mailto:deinemail@email.de">E-Mail senden</a>
-    </section>
+        <div class="card">
+            <h3>📝 ToDo App</h3>
+            <p>Aufgabenverwaltung im Browser.</p>
+            <a href="#">Ansehen</a>
+        </div>
 
-    <footer>
-        <p>© 2026 | Anas | GitHub Pages</p>
-    </footer>
+        <div class="card">
+            <h3>🎮 Game Projekt</h3>
+            <p>Kleines JavaScript Game.</p>
+            <a href="#">Ansehen</a>
+        </div>
+    </div>
+</section>
+
+<section id="contact">
+    <h2>Kontakt</h2>
+    <a class="button" href="mailto:deinemail@email.de">E-Mail senden</a>
+</section>
+
+<footer>
+    <p>© 2026 Anas | GitHub Pages</p>
+</footer>
+
+<script>
+const toggle = document.querySelector('.menu-toggle');
+const nav = document.querySelector('.nav-links');
+
+toggle.addEventListener('click', () => {
+    nav.classList.toggle('show');
+});
+</script>
 
 </body>
 </html>
