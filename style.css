@@ -7,7 +7,7 @@
 
 body {
     font-family: "Inter", Arial, sans-serif;
-    background: #ffffff; /* Weißer Hintergrund für den Rest der Seite */
+    background: #ffffff; /* Weißer Hintergrund für die Seite */
     color: #200; /* Dunkelgrauer Text */
     line-height: 1.6;
 }
@@ -71,6 +71,8 @@ header {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    /* Optional: sanfter Übergang nach unten */
+    background: linear-gradient(to bottom, #cc0000 80%, #ffffff 100%);
 }
 
 header h1 {
@@ -108,7 +110,7 @@ section {
     max-width: 1900px;
     margin: auto;
     text-align: center;
-    background: transparent; /* Weißer Hintergrund */
+    background: #ffffff; /* Weißer Hintergrund */
 }
 
 section h2 {
