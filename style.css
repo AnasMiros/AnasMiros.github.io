@@ -7,8 +7,8 @@
 
 body {
     font-family: "Inter", Arial, sans-serif;
-    background: #fff; /* Weißer Hintergrund */
-    color: #333; /* Dunkelgrau für Text */
+    background: #fff;
+    color: #333;
     line-height: 1.6;
 }
 
@@ -203,8 +203,8 @@ section h2::after {
     box-shadow: 0 10px 25px rgba(0,0,0,0.2);
 }
 
-/* --- Card Buttons --- */
-.card .button {
+/* --- Buttons --- */
+.button {
     display: inline-block;
     background: #cc0000;
     color: #fff;
@@ -212,15 +212,23 @@ section h2::after {
     border-radius: 50px;
     text-decoration: none;
     font-weight: 600;
-    margin-top: 1rem;
     border: 2px solid #cc0000;
     transition: all 0.3s;
 }
 
-.card .button:hover {
+.button:hover {
     background: #fff;
     color: #cc0000;
     transform: translateY(-3px) scale(1.05);
+}
+
+/* --- Contact Buttons --- */
+.contact-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin-top: 2rem;
 }
 
 /* --- Footer --- */
