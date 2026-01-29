@@ -6,28 +6,21 @@
 
     <title>Anas | Portfolio</title>
 
+    <!-- Normalize für gleiche Darstellung in allen Browsern -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/2.0.0/modern-normalize.min.css">
+
+    <!-- Google Font mit Fallback -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- BLOCK SCREEN -->
-<div id="browser-block">
-    <h1>🚫 Browser nicht unterstützt</h1>
-    <p>Bitte öffne diese Webseite mit:</p>
-    <div class="browser-buttons">
-        <a href="https://www.microsoft.com/edge" target="_blank">Microsoft Edge</a>
-        <a href="https://www.google.com/chrome/" target="_blank">Google Chrome</a>
-    </div>
-</div>
-
-<!-- MAIN SITE -->
-<div id="site">
-
 <nav>
     <div class="logo">Anas</div>
-    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+    <button class="menu-toggle" aria-label="Menü öffnen">☰</button>
 
-    <ul id="navLinks">
+    <ul class="nav-links">
         <li><a href="#about">Über mich</a></li>
         <li><a href="#projects">Projekte</a></li>
         <li><a href="#contact">Kontakt</a></li>
@@ -43,8 +36,7 @@
 <section id="about">
     <h2>Über mich</h2>
     <p>
-        Ich entwickle moderne Webseiten, die schnell, stabil und sauber auf
-        Microsoft Edge und Google Chrome laufen.
+        Ich baue Webseiten, die auf allen modernen Browsern gleich aussehen und stabil laufen.
     </p>
 </section>
 
@@ -54,17 +46,17 @@
     <div class="cards">
         <div class="card">
             <h3>🌦 Wetter App</h3>
-            <p>Live-Wetterdaten mit API-Anbindung.</p>
+            <p>Live-Wetter mit API.</p>
         </div>
 
         <div class="card">
             <h3>📝 ToDo App</h3>
-            <p>Aufgabenverwaltung direkt im Browser.</p>
+            <p>Browserbasierte Aufgabenverwaltung.</p>
         </div>
 
         <div class="card">
             <h3>🎮 Game Projekt</h3>
-            <p>Kleines Webgame mit JavaScript.</p>
+            <p>Kleines JavaScript Game.</p>
         </div>
     </div>
 </section>
@@ -78,41 +70,16 @@
     <p>© 2026 Anas | GitHub Pages</p>
 </footer>
 
-</div>
-
-<!-- SCRIPTS -->
 <script>
-/* BROWSER CHECK */
-(function () {
-    var ua = navigator.userAgent;
+/* Mobile Menü – Standard JS, überall kompatibel */
+document.addEventListener("DOMContentLoaded", function () {
+    var toggle = document.querySelector(".menu-toggle");
+    var nav = document.querySelector(".nav-links");
 
-    var isEdge = ua.indexOf("Edg") !== -1;
-    var isChrome = ua.indexOf("Chrome") !== -1 && !isEdge;
-
-    var allowed = isEdge || isChrome;
-
-    var site = document.getElementById("site");
-    var block = document.getElementById("browser-block");
-
-    if (allowed) {
-        site.style.display = "block";
-        block.style.display = "none";
-    } else {
-        site.style.display = "none";
-        block.style.display = "flex";
-    }
-})();
-
-/* MOBILE MENU */
-function toggleMenu() {
-    var nav = document.getElementById("navLinks");
-
-    if (nav.className.indexOf("show") === -1) {
-        nav.className += " show";
-    } else {
-        nav.className = nav.className.replace(" show", "");
-    }
-}
+    toggle.addEventListener("click", function () {
+        nav.classList.toggle("show");
+    });
+});
 </script>
 
 </body>
