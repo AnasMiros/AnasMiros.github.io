@@ -8,7 +8,7 @@
 body {
     font-family: "Inter", Arial, sans-serif;
     background: #cc0000; /* ROTER Hintergrund */
-    color: #333; /* Dunkler Text für bessere Lesbarkeit */
+    color: #333333; /* Dunkelgrau für normalen Text */
     line-height: 1.6;
 }
 
@@ -22,7 +22,7 @@ nav {
     position: sticky;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 10px rgba(204, 0, 0, 0.1);
 }
 
 .logo {
@@ -82,7 +82,7 @@ header h1 {
 header p {
     font-size: 1.2rem;
     margin-bottom: 2rem;
-    color: rgba(255, 255, 255, 0.9); /* Hellweiß */
+    color: white; /* WEIß */
 }
 
 header .button {
@@ -113,7 +113,7 @@ section {
 
 section h2 {
     font-size: 2rem;
-    color: white; /* WEIß */
+    color: white; /* WEIß auf rot */
     margin-bottom: 2rem;
 }
 
@@ -143,12 +143,12 @@ section h2 {
 
 .card h3 {
     margin-bottom: 1rem;
-    color: #cc0000; /* ROT */
+    color: #cc0000; /* ROT auf weiß */
 }
 
 .card p {
     margin-bottom: 1rem;
-    color: #333; /* Dunkelgrau für bessere Lesbarkeit */
+    color: #333333; /* Dunkelgrau auf weiß für beste Lesbarkeit */
 }
 
 /* --- Video Thumbnail --- */
@@ -188,10 +188,14 @@ section h2 {
 /* --- Footer --- */
 footer {
     background: #990000; /* Dunkleres Rot */
-    color: white;
+    color: white; /* WEIßER Text */
     text-align: center;
     padding: 2rem 1rem;
     border-top: 3px solid white;
+}
+
+footer p {
+    color: white; /* Sicherstellen, dass Footer-Text weiß ist */
 }
 
 /* --- Responsive --- */
@@ -246,8 +250,13 @@ footer {
 }
 
 /* Zusätzliche rote Akzente */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
 ::-webkit-scrollbar-thumb {
     background: #cc0000; /* Rote Scrollbar */
+    border-radius: 5px;
 }
 
 ::-webkit-scrollbar-track {
