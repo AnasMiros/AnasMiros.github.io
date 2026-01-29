@@ -8,7 +8,7 @@
 body {
     font-family: "Inter", Arial, sans-serif;
     background: #ffffff; /* Weißer Hintergrund für den Rest der Seite */
-    color: #333333; /* Dunkelgrauer Text */
+    color: #200; /* Dunkelgrauer Text */
     line-height: 1.6;
 }
 
@@ -108,7 +108,7 @@ section {
     max-width: 1900px;
     margin: auto;
     text-align: center;
-    background: #ffffff; /* Weißer Hintergrund */
+    background: transparent; /* Weißer Hintergrund */
 }
 
 section h2 {
