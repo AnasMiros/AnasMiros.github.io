@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>A.M | Portfolio</title>
 
-    <!-- Normalize für gleiche Darstellung in allen Browsern -->
+    <!-- Normalize for consistent styling -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/2.0.0/modern-normalize.min.css">
 
-    <!-- Google Font mit Fallback -->
+    <!-- Google Font with fallback -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="style.css">
@@ -17,26 +17,28 @@
 <body>
 
 <nav>
-    <div class="logo">Anas</div>
-    <button class="menu-toggle" aria-label="Menü öffnen">☰</button>
+    <div class="logo">A.M</div>
+    <button class="menu-toggle" aria-label="Open menu">☰</button>
 
     <ul class="nav-links">
-        <li><a href="#about">About me</a></li>
+        <li><a href="#about">About Me</a></li>
         <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Kontakt</a></li>
+        <li><a href="#contact">Contact</a></li>
     </ul>
 </nav>
 
 <header>
     <h1>Portfolio</h1>
-    <p>Student| Game Fan | Technic fan </p>
-    <a class="button" href="#projects">Meine Projekte</a>
+    <p>Student | Game Enthusiast | Technology Lover</p>
+    <a class="button" href="#projects">View Projects</a>
 </header>
 
 <section id="about">
-    <h2>About me</h2>
+    <h2>About Me</h2>
     <p>
-       i am a student currently enrolled at the htw berlin , i am studying "Ingeneuirinformtik"/ computer engineering
+        Hello! My name is Anastassya — I’m a student at HTW Berlin studying Computer Engineering. 
+        I have a passion for software development, robotics, and interactive systems, and I love building projects 
+        that bring creativity and technology together.
     </p>
 </section>
 
@@ -45,35 +47,30 @@
 
     <div class="cards">
         <div class="card">
-            <h3>HTW Code Projekt (Grade: ?)</h3>
-            <p>Live weather application using an API.</p>
+            <h3>HTW Code Project</h3>
+            <p>A live weather application built with API integration to display real-time weather data.</p>
         </div>
 
         <div class="card">
             <h3>Robot Hand Module</h3>
-            <p>
-                This project demonstrates a robotic hand module with basic movement
-                and control logic implemented in a student engineering environment.
-            </p>
-            <a class="button" 
-               href="https://youtu.be/vlB9Cxiwyl4" 
-               target="_blank">
-               ▶ Watch Video
+            <p>An engineering project demonstrating articulated movement and control logic in a robotic hand module.</p>
+            <a href="https://www.youtube.com/watch?v=vlB9Cxiwyl4" target="_blank">
+                <img class="video-thumb" src="https://img.youtube.com/vi/vlB9Cxiwyl4/hqdefault.jpg" alt="Robot Hand Module Video Thumbnail">
             </a>
+            <a class="button" href="https://www.youtube.com/watch?v=vlB9Cxiwyl4" target="_blank">▶ Watch Video</a>
         </div>
 
         <div class="card">
-            <h3>🎮 Game Project / Locomotion</h3>
-            <p>Small demo with motion matching, boss system and inventory mechanics.</p>
+            <h3>Game Project / Locomotion</h3>
+            <p>A small gameplay demo featuring motion matching, a boss system, and inventory mechanics.</p>
         </div>
     </div>
 </section>
 
-
 <section id="contact">
-    <h2>Contakt</h2>
-    <a class="button" href="mailto:private.">Private E -Mail</a>
-    <a class="button" href="mailto:Anastassya.Miroslaw@student.htw-berlin.de"> University E-mail</a>
+    <h2>Contact</h2>
+    <a class="button" href="mailto:private.email@example.com">Private Email</a>
+    <a class="button" href="mailto:Anastassya.Miroslaw@student.htw-berlin.de">University Email</a>
 </section>
 
 <footer>
@@ -81,7 +78,6 @@
 </footer>
 
 <script>
-/* Mobile Menü – Standard JS, überall kompatibel */
 document.addEventListener("DOMContentLoaded", function () {
     var toggle = document.querySelector(".menu-toggle");
     var nav = document.querySelector(".nav-links");
