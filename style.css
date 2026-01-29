@@ -8,7 +8,7 @@
 body {
     font-family: "Inter", Arial, sans-serif;
     background: #f4f6f8;
-    color: #222;
+    color: red;
     line-height: 1.6;
 }
 
@@ -123,8 +123,7 @@ section h2 {
 
 .card {
     background: white;
-    width: 980px;
-    height: 700px;
+    width: 300px;
     max-width: 100%;
     padding: 2rem;
     border-radius: 20px;
