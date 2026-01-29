@@ -3,30 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mein Portfolio</title>
+    <title>Anas | Portfolio</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+    <nav>
+        <div class="logo">Anas</div>
+        <ul>
+            <li><a href="#about">Über mich</a></li>
+            <li><a href="#projects">Projekte</a></li>
+            <li><a href="#contact">Kontakt</a></li>
+        </ul>
+    </nav>
+
     <header>
-        <h1>Hallo 👋</h1>
-        <p>Ich bin ein Web-Entwickler.</p>
+        <h1>Hi, ich bin Anas 👋</h1>
+        <p>Web Entwickler | Designer | Technik-Enthusiast</p>
+        <a class="button" href="#projects">Meine Projekte</a>
     </header>
 
     <section id="about">
         <h2>Über mich</h2>
-        <p>Hier kommt ein kurzer Text über dich rein.</p>
+        <p>
+            Ich entwickle moderne Webseiten und kreative Projekte mit HTML, CSS und JavaScript.
+            Mein Fokus liegt auf cleanem Design und Benutzerfreundlichkeit.
+        </p>
     </section>
 
     <section id="projects">
         <h2>Projekte</h2>
-        <ul>
-            <li>🔹 <a href="#">ToDo-App</a></li>
-            <li>🔹 <a href="#">Wetter-App</a></li>
-        </ul>
+
+        <div class="cards">
+            <div class="card">
+                <h3>🌦 Wetter App</h3>
+                <p>Eine App, die das aktuelle Wetter per API anzeigt.</p>
+                <a href="#">Ansehen</a>
+            </div>
+
+            <div class="card">
+                <h3>📝 ToDo App</h3>
+                <p>Minimalistische Aufgabenverwaltung im Browser.</p>
+                <a href="#">Ansehen</a>
+            </div>
+
+            <div class="card">
+                <h3>🎮 Game Projekt</h3>
+                <p>Kleines Webgame mit JavaScript.</p>
+                <a href="#">Ansehen</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Kontakt</h2>
+        <p>Schreib mir gerne eine Nachricht:</p>
+        <a class="button" href="mailto:deinemail@email.de">E-Mail senden</a>
     </section>
 
     <footer>
-        <p>© 2026 | Gehostet mit GitHub Pages</p>
+        <p>© 2026 | Anas | GitHub Pages</p>
     </footer>
+
 </body>
 </html>
