@@ -16,6 +16,170 @@
     
     <link rel="stylesheet" href="style.css">
     <style>
+        /* --- Schwertkampf Animationen --- */
+        .sword-fight-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            height: 300px;
+            margin: 3rem auto;
+            overflow: hidden;
+            background: linear-gradient(to bottom, #0a0a2a, #1a1a3a);
+            border-radius: 15px;
+            border: 3px solid #cc0000;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        
+        .sword {
+            position: absolute;
+            font-size: 5rem;
+            filter: drop-shadow(0 0 10px currentColor);
+            z-index: 10;
+            transition: transform 0.3s ease;
+        }
+        
+        .creativity-sword {
+            color: #00ccff;
+            left: 30%;
+            top: 50%;
+            transform: translate(-50%, -50%) rotate(45deg);
+            animation: creativityAttack 4s infinite alternate ease-in-out;
+        }
+        
+        .technology-sword {
+            color: #ff3333;
+            right: 30%;
+            top: 50%;
+            transform: translate(50%, -50%) rotate(-45deg);
+            animation: technologyAttack 4s infinite alternate ease-in-out;
+        }
+        
+        @keyframes creativityAttack {
+            0%, 40% {
+                transform: translate(-50%, -50%) rotate(45deg);
+                filter: drop-shadow(0 0 10px #00ccff);
+            }
+            50%, 90% {
+                transform: translate(-30%, -40%) rotate(30deg);
+                filter: drop-shadow(0 0 20px #00ccff);
+            }
+            100% {
+                transform: translate(-50%, -50%) rotate(45deg);
+                filter: drop-shadow(0 0 10px #00ccff);
+            }
+        }
+        
+        @keyframes technologyAttack {
+            0%, 40% {
+                transform: translate(50%, -50%) rotate(-45deg);
+                filter: drop-shadow(0 0 10px #ff3333);
+            }
+            50%, 90% {
+                transform: translate(30%, -60%) rotate(-60deg);
+                filter: drop-shadow(0 0 20px #ff3333);
+            }
+            100% {
+                transform: translate(50%, -50%) rotate(-45deg);
+                filter: drop-shadow(0 0 10px #ff3333);
+            }
+        }
+        
+        .sparks {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 5;
+        }
+        
+        .spark {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: #ffcc00;
+            border-radius: 50%;
+            opacity: 0;
+            animation: sparkFlash 1s infinite;
+        }
+        
+        @keyframes sparkFlash {
+            0% {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1);
+            }
+            100% {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+        }
+        
+        .battle-text {
+            position: absolute;
+            top: 20px;
+            width: 100%;
+            text-align: center;
+            z-index: 15;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 0 0 10px rgba(255,255,255,0.5);
+        }
+        
+        .creativity-label {
+            position: absolute;
+            left: 15%;
+            bottom: 20px;
+            color: #00ccff;
+            font-weight: 700;
+            font-size: 1.2rem;
+            text-shadow: 0 0 10px rgba(0,204,255,0.7);
+        }
+        
+        .technology-label {
+            position: absolute;
+            right: 15%;
+            bottom: 20px;
+            color: #ff3333;
+            font-weight: 700;
+            font-size: 1.2rem;
+            text-shadow: 0 0 10px rgba(255,51,51,0.7);
+        }
+        
+        .impact-circle {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 80px;
+            height: 80px;
+            border: 3px solid #ffcc00;
+            border-radius: 50%;
+            opacity: 0;
+            animation: impactRing 4s infinite;
+            z-index: 8;
+        }
+        
+        @keyframes impactRing {
+            0%, 40% {
+                opacity: 0;
+                transform: translate(-50%, -50%) scale(0.5);
+            }
+            45%, 55% {
+                opacity: 0.8;
+                transform: translate(-50%, -50%) scale(1);
+            }
+            60%, 100% {
+                opacity: 0;
+                transform: translate(-50%, -50%) scale(1.5);
+            }
+        }
+
         /* --- Floating Icons für Header --- */
         .floating-icons {
             position: absolute;
@@ -117,13 +281,6 @@
             }
         }
 
-        /* Responsive Design für Floating Icons */
-        @media (max-width: 768px) {
-            .floating-icons i {
-                font-size: 1.5rem;
-            }
-        }
-
         /* Stile für das BVG Video */
         .bvg-video {
             width: 100%;
@@ -163,139 +320,29 @@
             margin: 0;
         }
         
-        .button-group {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            margin-top: 1.5rem;
-            flex-wrap: wrap;
-        }
-        
-        /* Auffälliger GitLab Button mit Grade Icon */
-        .gitlab-button {
-            background: linear-gradient(135deg, #fc6d26, #e24329); /* GitLab Farbverlauf */
-            border: 3px solid #fc6d26;
-            color: white;
-            padding: 1.2rem 2.5rem;
-            font-size: 1.3rem;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            box-shadow: 0 6px 15px rgba(252, 109, 38, 0.4);
-            position: relative;
-            overflow: hidden;
-            transition: all 0.3s ease;
-        }
-        
-        .gitlab-button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: left 0.7s ease;
-        }
-        
-        .gitlab-button:hover::before {
-            left: 100%;
-        }
-        
-        .gitlab-button:hover {
-            background: linear-gradient(135deg, #e24329, #fc6d26);
-            transform: translateY(-5px) scale(1.05);
-            box-shadow: 0 10px 25px rgba(252, 109, 38, 0.6);
-            border-color: #fff;
-        }
-        
-        .gitlab-button:active {
-            transform: translateY(-2px) scale(1.02);
-        }
-        
-        .gitlab-button i {
-            font-size: 1.8rem;
-            margin-right: 12px;
-            vertical-align: middle;
-        }
-        
-        .gitlab-button .grade-icon {
-            font-size: 2rem;
-            margin-right: 12px;
-            vertical-align: middle;
-            color: #FFD700; /* Goldfarbe für Grade/Note */
-        }
-        
-        .gitlab-button span {
-            vertical-align: middle;
-            font-weight: 900;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
-        }
-        
-        .download-button {
-            background: #0066cc;
-            border-color: #0066cc;
-        }
-        
-        .download-button:hover {
-            background: #fff;
-            color: #0066cc;
-        }
-        
-        /* Highlight für den GitLab Button */
-        .gitlab-highlight {
-            position: relative;
-            margin: 2rem 0;
-            padding: 1.5rem;
-            background: rgba(252, 109, 38, 0.08);
-            border-radius: 12px;
-            border-left: 6px solid #fc6d26;
-            border-right: 1px solid rgba(252, 109, 38, 0.2);
-            border-top: 1px solid rgba(252, 109, 38, 0.1);
-            border-bottom: 1px solid rgba(252, 109, 38, 0.1);
-        }
-        
-        .gitlab-highlight p {
-            margin: 0.8rem 0;
-            font-size: 1rem;
-            color: #555;
-            line-height: 1.5;
-        }
-        
-        .gitlab-highlight i {
-            color: #fc6d26;
-            margin-right: 10px;
-            width: 24px;
-            text-align: center;
-        }
-        
-        .grade-info {
-            display: flex;
-            align-items: center;
-            background: rgba(255, 215, 0, 0.1);
-            padding: 1rem;
-            border-radius: 8px;
-            margin: 1rem 0;
-            border: 2px dashed rgba(255, 215, 0, 0.3);
-        }
-        
-        .grade-info i {
-            color: #FFD700;
-            font-size: 2.5rem;
-            margin-right: 15px;
-            flex-shrink: 0;
-        }
-        
-        .grade-info-content h4 {
-            margin: 0 0 5px 0;
-            color: #333;
-            font-size: 1.2rem;
-        }
-        
-        .grade-info-content p {
-            margin: 0;
-            color: #666;
-            font-size: 0.95rem;
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .sword-fight-container {
+                height: 200px;
+                margin: 2rem auto;
+            }
+            
+            .sword {
+                font-size: 3rem;
+            }
+            
+            .battle-text {
+                font-size: 1.2rem;
+            }
+            
+            .creativity-label,
+            .technology-label {
+                font-size: 1rem;
+            }
+            
+            .floating-icons i {
+                font-size: 1.5rem;
+            }
         }
     </style>
 </head>
@@ -307,6 +354,7 @@
 
     <ul class="nav-links">
         <li><a href="#about">About Me</a></li>
+        <li><a href="#sword-fight">Creativity vs Technology</a></li>
         <li><a href="#projects">Projects</a></li>
         <li><a href="#contact">Contact</a></li>
     </ul>
@@ -315,7 +363,7 @@
 <header>
     <h1>Portfolio</h1>
     <p>Student | Game Enthusiast | Technology Lover</p>
-    <a class="button" href="#projects">View Projects</a>
+    <a class="button" href="#sword-fight">Witness the Battle</a>
     
     <!-- Schwebe Icons Container -->
     <div class="floating-icons">
@@ -339,6 +387,29 @@
     </p>
 </section>
 
+<section id="sword-fight">
+    <h2>The Eternal Battle</h2>
+    <p>In my work, Creativity and Technology are in constant conflict, each pushing the other to new heights.</p>
+    
+    <div class="sword-fight-container" id="swordFight">
+        <div class="battle-text">CLASH OF INNOVATION</div>
+        <div class="impact-circle"></div>
+        
+        <i class="fas fa-sword sword creativity-sword"></i>
+        <i class="fas fa-sword sword technology-sword"></i>
+        
+        <div class="sparks" id="sparksContainer"></div>
+        
+        <div class="creativity-label">CREATIVITY</div>
+        <div class="technology-label">TECHNOLOGY</div>
+    </div>
+    
+    <p style="max-width: 800px; margin: 2rem auto;">
+        In every project, these two forces engage in a dynamic struggle. <strong>Creativity</strong> brings innovative ideas and artistic vision, 
+        while <strong>Technology</strong> provides the tools and precision to make them real. Their eternal battle produces extraordinary results.
+    </p>
+</section>
+
 <section id="projects">
     <h2>Projects</h2>
 
@@ -354,16 +425,6 @@
                     Your browser does not support the video tag. Please download the video to view it.
                 </video>
             </div>
-
-            <!-- Hervorgehobener GitLab Bereich -->
-            <div class="gitlab-highlight">
-                <p><i class="fas fa-code-branch"></i> <strong>Complete Project Repository:</strong> Contains all source code, documentation, and project files</p>
-                <p><i class="fas fa-graduation-cap"></i> <strong>Academic Project:</strong> Part of my Computer Engineering curriculum at HTW Berlin . Grade :  </p>
-                <p><i class="fas fa-file-alt"></i> <strong>Full Documentation:</strong> Technical specifications, implementation details, and evaluation</p>
-            </div>
-            <p style="margin-top: 1rem; font-size: 0.9rem; color: #666; text-align: center;">
-                <i class="fas fa-info-circle"></i> Video: "VideoBahn" - Demo der BVG App | Academic Project with Evaluation
-            </p>
         </div>
 
         <div class="card">
@@ -417,7 +478,7 @@
 </section>
 
 <footer>
-    <p>© 2026 A.M | GitHub Pages</p>
+    <p>© 2026 A.M | Where Creativity and Technology Collide</p>
 </footer>
 
 <script>
@@ -438,6 +499,56 @@ document.addEventListener("DOMContentLoaded", function () {
         } else {
             nav.classList.remove("scrolled");
         }
+    });
+    
+    // Schwertkampf Funken-Animation
+    function createSparks() {
+        const sparksContainer = document.getElementById('sparksContainer');
+        const sparksCount = 20;
+        
+        // Entferne alte Funken
+        sparksContainer.innerHTML = '';
+        
+        // Erstelle neue Funken
+        for (let i = 0; i < sparksCount; i++) {
+            const spark = document.createElement('div');
+            spark.className = 'spark';
+            
+            // Zufällige Position um den Mittelpunkt
+            const angle = Math.random() * Math.PI * 2;
+            const distance = 50 + Math.random() * 80;
+            const x = 50 + Math.cos(angle) * distance;
+            const y = 50 + Math.sin(angle) * distance;
+            
+            spark.style.left = `${x}%`;
+            spark.style.top = `${y}%`;
+            spark.style.animationDelay = `${Math.random() * 2}s`;
+            spark.style.animationDuration = `${0.5 + Math.random() * 1}s`;
+            
+            sparksContainer.appendChild(spark);
+        }
+    }
+    
+    // Erstelle initiale Funken
+    createSparks();
+    
+    // Erstelle regelmäßig neue Funken
+    setInterval(createSparks, 2000);
+    
+    // Interaktive Schwert-Animation beim Hover
+    const swordFight = document.getElementById('swordFight');
+    const creativitySword = document.querySelector('.creativity-sword');
+    const technologySword = document.querySelector('.technology-sword');
+    
+    swordFight.addEventListener('mouseenter', function() {
+        creativitySword.style.animation = 'creativityAttack 1s infinite alternate ease-in-out';
+        technologySword.style.animation = 'technologyAttack 1s infinite alternate ease-in-out';
+        createSparks();
+    });
+    
+    swordFight.addEventListener('mouseleave', function() {
+        creativitySword.style.animation = 'creativityAttack 4s infinite alternate ease-in-out';
+        technologySword.style.animation = 'technologyAttack 4s infinite alternate ease-in-out';
     });
 });
 </script>
