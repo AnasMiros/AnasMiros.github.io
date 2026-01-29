@@ -3,13 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <title>Anas | Portfolio</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<nav id="navbar">
+<!-- BLOCK SCREEN -->
+<div id="browser-block">
+    <h1>🚫 Browser nicht unterstützt</h1>
+    <p>Bitte öffne diese Webseite mit:</p>
+    <div class="browser-buttons">
+        <a href="https://www.microsoft.com/edge" target="_blank">Microsoft Edge</a>
+        <a href="https://www.google.com/chrome/" target="_blank">Google Chrome</a>
+    </div>
+</div>
+
+<!-- MAIN SITE -->
+<div id="site">
+
+<nav>
     <div class="logo">Anas</div>
     <button class="menu-toggle" onclick="toggleMenu()">☰</button>
 
@@ -29,7 +43,8 @@
 <section id="about">
     <h2>Über mich</h2>
     <p>
-        Ich baue moderne Webseiten, die auf allen Browsern und Geräten stabil laufen.
+        Ich entwickle moderne Webseiten, die schnell, stabil und sauber auf
+        Microsoft Edge und Google Chrome laufen.
     </p>
 </section>
 
@@ -39,17 +54,17 @@
     <div class="cards">
         <div class="card">
             <h3>🌦 Wetter App</h3>
-            <p>Wetteranzeige mit API.</p>
+            <p>Live-Wetterdaten mit API-Anbindung.</p>
         </div>
 
         <div class="card">
             <h3>📝 ToDo App</h3>
-            <p>Browserbasierte Aufgabenverwaltung.</p>
+            <p>Aufgabenverwaltung direkt im Browser.</p>
         </div>
 
         <div class="card">
             <h3>🎮 Game Projekt</h3>
-            <p>Kleines Webgame.</p>
+            <p>Kleines Webgame mit JavaScript.</p>
         </div>
     </div>
 </section>
@@ -63,7 +78,32 @@
     <p>© 2026 Anas | GitHub Pages</p>
 </footer>
 
+</div>
+
+<!-- SCRIPTS -->
 <script>
+/* BROWSER CHECK */
+(function () {
+    var ua = navigator.userAgent;
+
+    var isEdge = ua.indexOf("Edg") !== -1;
+    var isChrome = ua.indexOf("Chrome") !== -1 && !isEdge;
+
+    var allowed = isEdge || isChrome;
+
+    var site = document.getElementById("site");
+    var block = document.getElementById("browser-block");
+
+    if (allowed) {
+        site.style.display = "block";
+        block.style.display = "none";
+    } else {
+        site.style.display = "none";
+        block.style.display = "flex";
+    }
+})();
+
+/* MOBILE MENU */
 function toggleMenu() {
     var nav = document.getElementById("navLinks");
 
