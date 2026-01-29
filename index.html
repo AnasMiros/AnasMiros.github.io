@@ -1,172 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>A.M | Portfolio</title>
+    <title>A.M | Portfolio</title>
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/2.0.0/modern-normalize.min.css">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+    <!-- Normalize for consistent styling -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/2.0.0/modern-normalize.min.css">
 
-<style>
-/* --- Scroll Snap Container --- */
-html {
-    scroll-behavior: smooth;
-}
+    <!-- Google Font with fallback -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
-body {
-    font-family: "Inter", Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    scroll-snap-type: y mandatory;
-    overflow-y: scroll;
-}
-
-/* --- Sections Fullscreen --- */
-section {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    scroll-snap-align: start;
-    padding: 2rem;
-    text-align: center;
-}
-
-/* --- Header --- */
-header {
-    background: linear-gradient(135deg, #007acc, #00c6ff);
-    color: white;
-    width: 100%;
-}
-
-header h1 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-}
-
-header p {
-    font-size: 1.2rem;
-}
-
-/* --- Navigation --- */
-nav {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background: rgba(255,255,255,0.95);
-    display: flex;
-    justify-content: space-between;
-    padding: 1rem 2rem;
-    z-index: 1000;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
-
-nav a {
-    margin-left: 2rem;
-    text-decoration: none;
-    font-weight: 600;
-    color: #007acc;
-    transition: color 0.3s;
-}
-
-nav a:hover {
-    color: #005fa3;
-}
-
-/* --- Projects --- */
-.card {
-    background: white;
-    padding: 2rem;
-    border-radius: 15px;
-    max-width: 1200px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-    margin-top: 1rem;
-}
-
-.video-thumb {
-    width: 300%;
-    border-radius: 15px;
-    margin-top: 1rem;
-    cursor: pointer;
-    transition: transform 0.3s;
-}
-
-.video-thumb:hover {
-    transform: scale(50.05);
-}
-
-.button {
-    display: inline-block;
-    margin-top: 1rem;
-    padding: 0.6rem 1.2rem;
-    background: #007acc;
-    color: white;
-    border-radius: 20px;
-    text-decoration: none;
-    font-weight: 600;
-    transition: background 0.3s, transform 0.3s;
-}
-
-.button:hover {
-    background: #005fa3;
-    transform: translateY(-2px);
-}
-</style>
-
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <nav>
     <div class="logo">A.M</div>
-    <div>
-        <a href="#about">About Me</a>
-        <a href="#project1">Project 1</a>
-        <a href="#project2">Project 2</a>
-        <a href="#project3">Project 3</a>
-        <a href="#contact">Contact</a>
-    </div>
+    <button class="menu-toggle" aria-label="Open menu">☰</button>
+
+    <ul class="nav-links">
+        <li><a href="#about">About Me</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
 </nav>
 
-<header id="hero">
+<header>
     <h1>Portfolio</h1>
     <p>Student | Game Enthusiast | Technology Lover</p>
-    <a class="button" href="#about">Get Started</a>
+    <a class="button" href="#projects">View Projects</a>
 </header>
 
 <section id="about">
     <h2>About Me</h2>
     <p>
         Hello! My name is Anastassya — I’m a student at HTW Berlin studying Computer Engineering. 
-        I am passionate about software development, robotics, and interactive systems.
+        I have a passion for software development, robotics, and interactive systems, and I love building projects 
+        that bring creativity and technology together.
     </p>
 </section>
 
-<section id="project1">
-    <h2>HTW Code Project</h2>
-    <div class="card">
-        <p>A live weather application built with API integration to display real-time weather data.</p>
-    </div>
-</section>
+<section id="projects">
+    <h2>Projects</h2>
 
-<section id="project2">
-    <h2>Robot Hand Module</h2>
-    <div class="card">
-        <p>Articulated robotic hand module demonstrating precise movement and control logic.</p>
-        <a href="https://www.youtube.com/watch?v=vlB9Cxiwyl4" target="_blank">
-            <img class="video-thumb" src="https://img.youtube.com/vi/vlB9Cxiwyl4/hqdefault.jpg" alt="Robot Hand Video Thumbnail">
-        </a>
-        <a class="button" href="https://www.youtube.com/watch?v=vlB9Cxiwyl4" target="_blank">▶ Watch Video</a>
-    </div>
-</section>
+    <div class="cards">
+        <div class="card">
+            <h3>HTW Code Project</h3>
+            <p>A live weather application built with API integration to display real-time weather data.</p>
+        </div>
 
-<section id="project3">
-    <h2>Game Project / Locomotion</h2>
-    <div class="card">
-        <p>A small gameplay demo featuring motion matching, boss system, and inventory mechanics.</p>
+        <div class="card">
+            <h3>Robot Hand Module</h3>
+            <p>An engineering project demonstrating articulated movement and control logic in a robotic hand module.</p>
+            <a href="https://www.youtube.com/watch?v=vlB9Cxiwyl4" target="_blank">
+                <img class="video-thumb" src="https://img.youtube.com/vi/vlB9Cxiwyl4/hqdefault.jpg" alt="Robot Hand Module Video Thumbnail">
+            </a>
+            <a class="button" href="https://www.youtube.com/watch?v=vlB9Cxiwyl4" target="_blank">▶ Watch Video</a>
+        </div>
+
+        <div class="card">
+            <h3>Game Project / Locomotion</h3>
+            <p>A small gameplay demo featuring motion matching, a boss system, and inventory mechanics.</p>
+        </div>
     </div>
 </section>
 
@@ -175,6 +72,21 @@ nav a:hover {
     <a class="button" href="mailto:private.email@example.com">Private Email</a>
     <a class="button" href="mailto:Anastassya.Miroslaw@student.htw-berlin.de">University Email</a>
 </section>
+
+<footer>
+    <p>© 2026 A.M | GitHub Pages</p>
+</footer>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    var toggle = document.querySelector(".menu-toggle");
+    var nav = document.querySelector(".nav-links");
+
+    toggle.addEventListener("click", function () {
+        nav.classList.toggle("show");
+    });
+});
+</script>
 
 </body>
 </html>
