@@ -60,14 +60,58 @@
             flex-wrap: wrap;
         }
         
+        /* Auffälliger GitLab Button */
         .gitlab-button {
-            background: #fc6d26; /* GitLab Orange */
-            border-color: #fc6d26;
+            background: linear-gradient(135deg, #fc6d26, #e24329); /* GitLab Farbverlauf */
+            border: 3px solid #fc6d26;
+            color: white;
+            padding: 1.2rem 2.5rem;
+            font-size: 1.3rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 6px 15px rgba(252, 109, 38, 0.4);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .gitlab-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.7s ease;
+        }
+        
+        .gitlab-button:hover::before {
+            left: 100%;
         }
         
         .gitlab-button:hover {
-            background: #fff;
-            color: #fc6d26;
+            background: linear-gradient(135deg, #e24329, #fc6d26);
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 10px 25px rgba(252, 109, 38, 0.6);
+            border-color: #fff;
+        }
+        
+        .gitlab-button:active {
+            transform: translateY(-2px) scale(1.02);
+        }
+        
+        .gitlab-button i {
+            font-size: 1.8rem;
+            margin-right: 12px;
+            vertical-align: middle;
+        }
+        
+        .gitlab-button span {
+            vertical-align: middle;
+            font-weight: 900;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
         }
         
         .download-button {
@@ -78,6 +122,27 @@
         .download-button:hover {
             background: #fff;
             color: #0066cc;
+        }
+        
+        /* Highlight für den GitLab Button */
+        .gitlab-highlight {
+            position: relative;
+            margin: 2rem 0;
+            padding: 1rem;
+            background: rgba(252, 109, 38, 0.1);
+            border-radius: 10px;
+            border-left: 5px solid #fc6d26;
+        }
+        
+        .gitlab-highlight p {
+            margin: 0.5rem 0;
+            font-size: 0.95rem;
+            color: #666;
+        }
+        
+        .gitlab-highlight i {
+            color: #fc6d26;
+            margin-right: 8px;
         }
     </style>
 </head>
@@ -125,9 +190,15 @@
                 </video>
             </div>
             
+            <!-- Hervorgehobener GitLab Bereich -->
+            <div class="gitlab-highlight">
+                <p><i class="fas fa-code-branch"></i> <strong>Project Repository:</strong> Contains all source code, documentation, and project files</p>
+                <p><i class="fas fa-users"></i> <strong>Team Collaboration:</strong> Developed as part of a team project at HTW Berlin</p>
+            </div>
+            
             <div class="button-group">
                 <a class="button gitlab-button" href="https://gitlab.rz.htw-berlin.de/s0598584/team-anaconda-user" target="_blank">
-                    <i class="fab fa-gitlab"></i> View on GitLab(HTW)
+                    <i class="fab fa-gitlab"></i> <span>VIEW ON GITLAB (HTW)</span>
                 </a>
             </div>
             
