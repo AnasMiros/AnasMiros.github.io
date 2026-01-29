@@ -63,7 +63,7 @@ nav {
 header {
     min-height: 90vh;
     background: linear-gradient(135deg, #007acc, #00c6ff);
-    color: white;
+    color: red;
     text-align: center;
     padding: 4rem 1rem;
 
@@ -85,7 +85,7 @@ header p {
 
 header .button {
     display: inline-block;
-    background: white;
+    background: red;
     color: #007acc;
     padding: 0.8rem 1.5rem;
     border-radius: 30px;
@@ -109,7 +109,7 @@ section {
 
 section h2 {
     font-size: 2rem;
-    color: #007acc;
+    color: red;
     margin-bottom: 2rem;
 }
 
