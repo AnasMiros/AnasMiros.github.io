@@ -862,4 +862,99 @@ footer {
         max-width: 350px;
         min-width: auto;
     }
+<section id="fight-scene" style="background:#222; color:#fff; padding:4rem; text-align:center;">
+  <h2>Creativity vs Technology</h2>
+  <div class="arena">
+    <div class="fighter creativity">Creativity</div>
+    <div class="fighter technology">Technology</div>
+  </div>
+</section>
+
+<style>
+.arena {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  height: 200px;
+  margin: 2rem auto;
+  background: #333;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.fighter {
+  position: absolute;
+  bottom: 20px;
+  width: 120px;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: white;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.creativity {
+  left: 0;
+  background: linear-gradient(45deg, #ff66cc, #ffcc66);
+}
+
+.technology {
+  right: 0;
+  background: linear-gradient(45deg, #66ccff, #66ffcc);
+}
+
+.sword {
+  position: absolute;
+  width: 10px;
+  height: 100px;
+  top: 10px;
+  background: yellow;
+  transform-origin: bottom center;
+  z-index: 1;
+}
+
+@keyframes clash {
+  0%, 100% { transform: translateX(0) rotate(0deg); }
+  50% { transform: translateX(200px) rotate(45deg); }
+}
+
+@keyframes clashTech {
+  0%, 100% { transform: translateX(0) rotate(0deg); }
+  50% { transform: translateX(-200px) rotate(-45deg); }
+}
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const creativity = document.querySelector(".creativity");
+  const technology = document.querySelector(".technology");
+
+  // Schwerter als Divs
+  const swordC = document.createElement("div");
+  swordC.classList.add("sword");
+  creativity.appendChild(swordC);
+
+  const swordT = document.createElement("div");
+  swordT.classList.add("sword");
+  technology.appendChild(swordT);
+
+  function clash() {
+    swordC.style.animation = "clash 1s ease-in-out forwards";
+    swordT.style.animation = "clashTech 1s ease-in-out forwards";
+
+    // Zurücksetzen nach Animation
+    setTimeout(() => {
+      swordC.style.animation = "";
+      swordT.style.animation = "";
+    }, 1000);
+  }
+
+  // Clash alle 2 Sekunden
+  setInterval(clash, 2000);
+});
+</script>
+
 }
