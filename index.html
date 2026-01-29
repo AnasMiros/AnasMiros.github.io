@@ -12,6 +12,74 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Stile für das BVG Video */
+        .bvg-video {
+            width: 100%;
+            max-width: 600px;
+            border-radius: 15px;
+            margin: 1.5rem auto;
+            display: block;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            border: 3px solid #cc0000;
+            background: #000;
+        }
+        
+        .video-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin: 1.5rem auto;
+        }
+        
+        .video-placeholder {
+            background: linear-gradient(135deg, #cc0000, #ff3333);
+            border-radius: 15px;
+            padding: 3rem 2rem;
+            text-align: center;
+            color: white;
+            border: 3px solid #cc0000;
+        }
+        
+        .video-placeholder i {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            opacity: 0.9;
+        }
+        
+        .video-placeholder p {
+            font-size: 1.1rem;
+            margin: 0;
+        }
+        
+        .button-group {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .gitlab-button {
+            background: #fc6d26; /* GitLab Orange */
+            border-color: #fc6d26;
+        }
+        
+        .gitlab-button:hover {
+            background: #fff;
+            color: #fc6d26;
+        }
+        
+        .download-button {
+            background: #0066cc;
+            border-color: #0066cc;
+        }
+        
+        .download-button:hover {
+            background: #fff;
+            color: #0066cc;
+        }
+    </style>
 </head>
 <body>
 
@@ -46,9 +114,29 @@
 
     <div class="cards">
         <div class="card">
-            <h3>HTW Code Project</h3>
-            <p>A BVG Application which shows the probability of the train arriving.</p>
-            <a class="button" href="https://gitlab.rz.htw-berlin.de/s0598584/team-anaconda-user" target="_blank">▶ Git-Lab Repository</a>
+            <h3>HTW Code Project - BVG App</h3>
+            <p>A BVG Application which shows the probability of the train arriving in real-time.</p>
+            
+            <!-- Video Player für VideoBahn -->
+            <div class="video-container">
+                <video class="bvg-video" controls>
+                    <source src="VideoBahn.mp4" type="video/mp4">
+                    Your browser does not support the video tag. Please download the video to view it.
+                </video>
+            </div>
+            
+            <div class="button-group">
+                <a class="button gitlab-button" href="https://gitlab.rz.htw-berlin.de/s0598584/team-anaconda-user" target="_blank">
+                    <i class="fab fa-gitlab"></i> View on GitLab
+                </a>
+                <a class="button download-button" href="videos/VideoBahn.mp4" download="VideoBahn-App-Demo.mp4">
+                    <i class="fas fa-download"></i> Download Video
+                </a>
+            </div>
+            
+            <p style="margin-top: 1rem; font-size: 0.9rem; color: #666;">
+                <i class="fas fa-info-circle"></i> Video: "VideoBahn" - Demo der BVG App
+            </p>
         </div>
 
         <div class="card">
@@ -63,6 +151,11 @@
         <div class="card">
             <h3>Game Project / Locomotion</h3>
             <p>A small gameplay demo featuring motion matching, a boss system, and inventory mechanics.</p>
+            <!-- Platzhalter für Game Video -->
+            <div class="video-placeholder">
+                <i class="fas fa-gamepad"></i>
+                <p>Gameplay video coming soon!</p>
+            </div>
         </div>
     </div>
 </section>
