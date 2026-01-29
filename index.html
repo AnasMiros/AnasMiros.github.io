@@ -16,78 +16,6 @@
     
     <link rel="stylesheet" href="style.css">
     <style>
-        /* --- Schwert-Stile für About Me --- */
-        .swords-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 3rem;
-            margin: 2rem auto;
-            max-width: 800px;
-            padding: 2rem;
-        }
-        
-        .sword-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            flex: 1;
-        }
-        
-        .sword-icon {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            transition: transform 0.3s ease;
-        }
-        
-        .creativity-sword {
-            color: #0066cc;
-        }
-        
-        .technology-sword {
-            color: #cc0000;
-        }
-        
-        .sword-item:hover .sword-icon {
-            transform: translateY(-5px);
-        }
-        
-        .sword-label {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-        }
-        
-        .creativity-label {
-            color: #0066cc;
-        }
-        
-        .technology-label {
-            color: #cc0000;
-        }
-        
-        .sword-divider {
-            font-size: 2rem;
-            color: #666;
-            font-weight: 300;
-        }
-        
-        /* Einfache Schwert-Animation */
-        @keyframes swordPulse {
-            0% { transform: rotate(0deg); }
-            50% { transform: rotate(10deg); }
-            100% { transform: rotate(0deg); }
-        }
-        
-        .creativity-sword:hover {
-            animation: swordPulse 0.5s ease;
-        }
-        
-        .technology-sword:hover {
-            animation: swordPulse 0.5s ease reverse;
-        }
-        
         /* --- Floating Icons für Header --- */
         .floating-icons {
             position: absolute;
@@ -189,6 +117,13 @@
             }
         }
 
+        /* Responsive Design für Floating Icons */
+        @media (max-width: 768px) {
+            .floating-icons i {
+                font-size: 1.5rem;
+            }
+        }
+
         /* Stile für das BVG Video */
         .bvg-video {
             width: 100%;
@@ -228,35 +163,139 @@
             margin: 0;
         }
         
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .swords-container {
-                flex-direction: column;
-                gap: 2rem;
-            }
-            
-            .sword-divider {
-                transform: rotate(90deg);
-                margin: 0.5rem 0;
-            }
-            
-            .sword-icon {
-                font-size: 3rem;
-            }
-            
-            .floating-icons i {
-                font-size: 1.5rem;
-            }
+        .button-group {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
         }
         
-        @media (max-width: 480px) {
-            .sword-icon {
-                font-size: 2.5rem;
-            }
-            
-            .sword-label {
-                font-size: 1.3rem;
-            }
+        /* Auffälliger GitLab Button mit Grade Icon */
+        .gitlab-button {
+            background: linear-gradient(135deg, #fc6d26, #e24329); /* GitLab Farbverlauf */
+            border: 3px solid #fc6d26;
+            color: white;
+            padding: 1.2rem 2.5rem;
+            font-size: 1.3rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 6px 15px rgba(252, 109, 38, 0.4);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .gitlab-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.7s ease;
+        }
+        
+        .gitlab-button:hover::before {
+            left: 100%;
+        }
+        
+        .gitlab-button:hover {
+            background: linear-gradient(135deg, #e24329, #fc6d26);
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 10px 25px rgba(252, 109, 38, 0.6);
+            border-color: #fff;
+        }
+        
+        .gitlab-button:active {
+            transform: translateY(-2px) scale(1.02);
+        }
+        
+        .gitlab-button i {
+            font-size: 1.8rem;
+            margin-right: 12px;
+            vertical-align: middle;
+        }
+        
+        .gitlab-button .grade-icon {
+            font-size: 2rem;
+            margin-right: 12px;
+            vertical-align: middle;
+            color: #FFD700; /* Goldfarbe für Grade/Note */
+        }
+        
+        .gitlab-button span {
+            vertical-align: middle;
+            font-weight: 900;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+        
+        .download-button {
+            background: #0066cc;
+            border-color: #0066cc;
+        }
+        
+        .download-button:hover {
+            background: #fff;
+            color: #0066cc;
+        }
+        
+        /* Highlight für den GitLab Button */
+        .gitlab-highlight {
+            position: relative;
+            margin: 2rem 0;
+            padding: 1.5rem;
+            background: rgba(252, 109, 38, 0.08);
+            border-radius: 12px;
+            border-left: 6px solid #fc6d26;
+            border-right: 1px solid rgba(252, 109, 38, 0.2);
+            border-top: 1px solid rgba(252, 109, 38, 0.1);
+            border-bottom: 1px solid rgba(252, 109, 38, 0.1);
+        }
+        
+        .gitlab-highlight p {
+            margin: 0.8rem 0;
+            font-size: 1rem;
+            color: #555;
+            line-height: 1.5;
+        }
+        
+        .gitlab-highlight i {
+            color: #fc6d26;
+            margin-right: 10px;
+            width: 24px;
+            text-align: center;
+        }
+        
+        .grade-info {
+            display: flex;
+            align-items: center;
+            background: rgba(255, 215, 0, 0.1);
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            border: 2px dashed rgba(255, 215, 0, 0.3);
+        }
+        
+        .grade-info i {
+            color: #FFD700;
+            font-size: 2.5rem;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+        
+        .grade-info-content h4 {
+            margin: 0 0 5px 0;
+            color: #333;
+            font-size: 1.2rem;
+        }
+        
+        .grade-info-content p {
+            margin: 0;
+            color: #666;
+            font-size: 0.95rem;
         }
     </style>
 </head>
@@ -298,27 +337,6 @@
         I have a passion for software development, robotics, and interactive systems, and I love building projects 
         that bring creativity and technology together.
     </p>
-    
-    <!-- Schwerter für Creativity und Technology -->
-    <div class="swords-container">
-        <div class="sword-item">
-            <i class="fas fa-sword sword-icon creativity-sword"></i>
-            <div class="sword-label creativity-label">Creativity</div>
-            <p>Innovative ideas, artistic vision & creative solutions</p>
-        </div>
-        
-        <div class="sword-divider">⚔️</div>
-        
-        <div class="sword-item">
-            <i class="fas fa-sword sword-icon technology-sword"></i>
-            <div class="sword-label technology-label">Technology</div>
-            <p>Technical skills, precision & implementation power</p>
-        </div>
-    </div>
-    
-    <p style="max-width: 800px; margin: 2rem auto; font-style: italic;">
-        In my work, these two forces combine to create innovative solutions where imaginative concepts meet technical excellence.
-    </p>
 </section>
 
 <section id="projects">
@@ -336,6 +354,16 @@
                     Your browser does not support the video tag. Please download the video to view it.
                 </video>
             </div>
+
+            <!-- Hervorgehobener GitLab Bereich -->
+            <div class="gitlab-highlight">
+                <p><i class="fas fa-code-branch"></i> <strong>Complete Project Repository:</strong> Contains all source code, documentation, and project files</p>
+                <p><i class="fas fa-graduation-cap"></i> <strong>Academic Project:</strong> Part of my Computer Engineering curriculum at HTW Berlin . Grade :  </p>
+                <p><i class="fas fa-file-alt"></i> <strong>Full Documentation:</strong> Technical specifications, implementation details, and evaluation</p>
+            </div>
+            <p style="margin-top: 1rem; font-size: 0.9rem; color: #666; text-align: center;">
+                <i class="fas fa-info-circle"></i> Video: "VideoBahn" - Demo der BVG App | Academic Project with Evaluation
+            </p>
         </div>
 
         <div class="card">
@@ -389,7 +417,7 @@
 </section>
 
 <footer>
-    <p>© 2026 A.M | Where Creativity Meets Technology</p>
+    <p>© 2026 A.M | GitHub Pages</p>
 </footer>
 
 <script>
@@ -414,4 +442,424 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 </script>
 </body>
-</html>
+</html>/* --- Reset & Base --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Inter", Arial, sans-serif;
+    background: #fff;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* --- Navigation --- */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: background 0.3s;
+}
+
+nav.scrolled {
+    background: #cc0000;
+}
+
+.logo {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #cc0000;
+    transition: color 0.3s;
+}
+
+nav.scrolled .logo {
+    color: #fff;
+}
+
+.menu-toggle {
+    display: none;
+    font-size: 1.8rem;
+    background: none;
+    border: none;
+    color: #cc0000;
+    cursor: pointer;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #cc0000;
+    font-weight: 600;
+    padding: 0.3rem 0.5rem;
+    border-radius: 8px;
+    transition: background 0.3s, color 0.3s;
+}
+
+.nav-links a:hover {
+    background: #cc0000;
+    color: #fff;
+}
+
+/* --- Header --- */
+header {
+    min-height: 90vh;
+    background: linear-gradient(135deg, #cc0000, #ff3333);
+    color: white;
+    text-align: center;
+    padding: 4rem 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Stelle sicher, dass Header-Inhalt über Icons liegt */
+header h1,
+header p,
+header .button {
+    position: relative;
+    z-index: 2;
+}
+
+header::after {
+    content: "";
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 50%;
+    top: -50%;
+    left: -50%;
+    transform: rotate(45deg);
+    z-index: 1;
+}
+
+header h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+header p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    max-width: 700px;
+}
+
+header .button {
+    display: inline-block;
+    background: #fff;
+    color: #cc0000;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.3s;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+    z-index: 2;
+}
+
+header .button:hover {
+    background: #ffcccc;
+    transform: translateY(-3px) scale(1.05);
+}
+
+/* --- Sections --- */
+section {
+    padding: 5rem 1.5rem;
+    max-width: 1600px;
+    margin: auto;
+    text-align: center;
+    background: #fff;
+}
+
+section:nth-child(even) {
+    background: #f9f9f9;
+}
+
+section h2 {
+    font-size: 2.5rem;
+    color: #cc0000;
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+section h2::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: #cc0000;
+    margin: 0.5rem auto 0;
+    border-radius: 2px;
+}
+
+.contact-description {
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* --- Cards --- */
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.card {
+    background: #fff;
+    width: 700px;
+    max-width: 90%;
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    border: 2px solid #cc0000;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+}
+
+.card h3 {
+    color: #cc0000;
+    margin-bottom: 1rem;
+}
+
+.card p {
+    color: #555;
+}
+
+/* --- Video Thumbnail --- */
+.video-thumb {
+    width: 100%;
+    border-radius: 15px;
+    margin-top: 1rem;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+    border: 2px solid #cc0000;
+}
+
+.video-thumb:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+/* --- Buttons --- */
+.button {
+    display: inline-block;
+    background: #cc0000;
+    color: #fff;
+    padding: 0.8rem 1.5rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    border: 2px solid #cc0000;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+.button:hover {
+    background: #fff;
+    color: #cc0000;
+    transform: translateY(-3px) scale(1.05);
+}
+
+/* --- Contact Buttons --- */
+.contact-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+}
+
+/* --- Email Buttons --- */
+.email-button {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    background: white;
+    color: #333;
+    padding: 1.2rem 2rem;
+    border-radius: 15px;
+    text-decoration: none;
+    font-weight: 600;
+    border: 2px solid #cc0000;
+    transition: all 0.3s;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    min-width: 280px;
+    max-width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.email-button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #cc0000, #ff3333);
+    opacity: 0;
+    transition: opacity 0.3s;
+    z-index: 1;
+}
+
+.email-button:hover::before {
+    opacity: 1;
+}
+
+.email-button i, .email-button span, .email-button .email-label {
+    position: relative;
+    z-index: 2;
+    transition: color 0.3s;
+}
+
+.email-button:hover i, .email-button:hover span, .email-button:hover .email-label {
+    color: white;
+}
+
+.email-button .email-icon {
+    font-size: 1.5rem;
+    color: #cc0000;
+    transition: color 0.3s;
+}
+
+.email-button .email-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    flex-grow: 1;
+}
+
+.email-button .email-label {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 0.2rem;
+    font-weight: 500;
+}
+
+.email-button .email-address {
+    font-size: 1rem;
+    color: #333;
+    font-weight: 600;
+    word-break: break-all;
+}
+
+.email-button .arrow-icon {
+    color: #666;
+    transition: color 0.3s;
+}
+
+.email-button.private {
+    border-color: #cc0000;
+}
+
+.email-button.private .email-icon {
+    color: #cc0000;
+}
+
+.email-button.public {
+    border-color: #0066cc;
+}
+
+.email-button.public .email-icon {
+    color: #0066cc;
+}
+
+.email-button.public::before {
+    background: linear-gradient(135deg, #0066cc, #3399ff);
+}
+
+.email-button:hover {
+    transform: translateY(-5px) scale(1.03);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+/* --- Footer --- */
+footer {
+    background: #cc0000;
+    color: white;
+    text-align: center;
+    padding: 2.5rem 1rem;
+    border-top: 3px solid #fff;
+    font-size: 0.95rem;
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background: #fff;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        border-top: 2px solid #cc0000;
+    }
+
+    .nav-links.show {
+        display: flex;
+    }
+
+    .nav-links li {
+        margin: 1rem 0;
+        text-align: center;
+    }
+
+    header h1 {
+        font-size: 2.2rem;
+    }
+
+    header p {
+        font-size: 1rem;
+    }
+
+    .cards {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card {
+        width: 90%;
+    }
+
+    .contact-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .email-button {
+        width: 100%;
+        max-width: 350px;
+        min-width: auto;
+    }
+}
