@@ -63,8 +63,8 @@ nav {
 /* --- Header --- */
 header {
     min-height: 90vh;
-    background: linear-gradient(135deg, #cc0000, #ff3333); /* ROTER Gradient */
-    color: red; /* WEIßER Text */
+    background: #cc0000; /* Einfarbiges Rot statt Gradient */
+    color: white;
     text-align: center;
     padding: 4rem 1rem;
     display: flex;
@@ -108,7 +108,7 @@ section {
     max-width: 1900px;
     margin: auto;
     text-align: center;
-    background: #cc0000; /* ROTER Hintergrund */
+    background: #cc0000; /* Einheitlich mit Body/ Header */
 }
 
 section h2 {
