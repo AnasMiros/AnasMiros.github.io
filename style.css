@@ -5,70 +5,71 @@
 }
 
 body {
-    font-family: "Inter", Arial, sans-serif;
+    font-family: Arial, sans-serif;
     background: #f4f6f8;
     color: #222;
-    line-height: 1.6;
 }
 
 /* NAV */
 nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem;
-    background: white;
-    position: sticky;
+    position: fixed;
     top: 0;
-    z-index: 100;
+    left: 0;
+    width: 100%;
+    background: white;
+    padding: 1rem;
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    z-index: 1000;
 }
 
 .logo {
+    float: left;
     font-size: 1.5rem;
-    font-weight: 700;
+    font-weight: bold;
     color: #007acc;
 }
 
 .menu-toggle {
-    display: none;
+    float: right;
     font-size: 1.5rem;
     background: none;
     border: none;
     cursor: pointer;
 }
 
-/* Links */
-.nav-links {
+/* LINKS */
+#navLinks {
+    clear: both;
     list-style: none;
-    display: flex;
+    display: none;
+    text-align: center;
+    background: white;
 }
 
-.nav-links li {
-    margin-left: 1.5rem;
+#navLinks li {
+    padding: 1rem 0;
 }
 
-.nav-links a {
+#navLinks a {
     text-decoration: none;
     color: #333;
-    font-weight: 600;
+    font-weight: bold;
 }
 
-.nav-links a:hover {
-    color: #007acc;
+/* SHOW CLASS */
+#navLinks.show {
+    display: block;
 }
 
 /* HEADER */
 header {
+    padding-top: 6rem;
     min-height: 90vh;
-    background: linear-gradient(135deg, #007acc, #00c6ff);
+    background: #007acc;
     color: white;
     text-align: center;
-    padding: 3rem 1rem;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    padding-left: 1rem;
+    padding-right: 1rem;
 }
 
 /* BUTTON */
@@ -80,37 +81,35 @@ header {
     padding: 0.8rem 1.5rem;
     border-radius: 30px;
     text-decoration: none;
-    font-weight: 600;
+    font-weight: bold;
 }
 
 /* SECTIONS */
 section {
-    padding: 4rem 1.5rem;
-    max-width: 1100px;
+    padding: 4rem 1rem;
+    max-width: 1000px;
     margin: auto;
     text-align: center;
 }
 
 section h2 {
-    font-size: 2rem;
-    margin-bottom: 1.5rem;
     color: #007acc;
+    margin-bottom: 1rem;
 }
 
 /* CARDS */
 .cards {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 2rem;
+    text-align: center;
 }
 
 .card {
+    display: inline-block;
+    vertical-align: top;
     background: white;
-    width: 300px;
-    max-width: 100%;
+    width: 280px;
+    margin: 1rem;
     padding: 2rem;
-    border-radius: 20px;
+    border-radius: 15px;
     box-shadow: 0 8px 20px rgba(0,0,0,0.1);
 }
 
@@ -120,35 +119,4 @@ footer {
     color: white;
     text-align: center;
     padding: 1.5rem;
-}
-
-/* MOBILE SUPPORT */
-@media (max-width: 768px) {
-    .menu-toggle {
-        display: block;
-    }
-
-    .nav-links {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-        background: white;
-        position: absolute;
-        top: 60px;
-        left: 0;
-        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-    }
-
-    .nav-links.show {
-        display: flex;
-    }
-
-    .nav-links li {
-        margin: 1rem 0;
-        text-align: center;
-    }
-
-    header h1 {
-        font-size: 2.2rem;
-    }
 }
