@@ -10,6 +10,46 @@ body {
     color: #222;
 }
 
+/* BLOCK SCREEN */
+#browser-block {
+    display: none;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #007acc, #00c6ff);
+    color: white;
+    text-align: center;
+    padding: 3rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#browser-block h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.browser-buttons {
+    margin-top: 2rem;
+}
+
+.browser-buttons a {
+    display: inline-block;
+    margin: 0.5rem;
+    padding: 0.8rem 1.5rem;
+    background: white;
+    color: #007acc;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* SITE */
+#site {
+    display: none;
+}
+
 /* NAV */
 nav {
     position: fixed;
@@ -56,7 +96,6 @@ nav {
     font-weight: bold;
 }
 
-/* SHOW CLASS */
 #navLinks.show {
     display: block;
 }
@@ -65,11 +104,15 @@ nav {
 header {
     padding-top: 6rem;
     min-height: 90vh;
-    background: #007acc;
+    background: linear-gradient(135deg, #007acc, #00c6ff);
     color: white;
     text-align: center;
     padding-left: 1rem;
     padding-right: 1rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 /* BUTTON */
@@ -94,7 +137,7 @@ section {
 
 section h2 {
     color: #007acc;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
 }
 
 /* CARDS */
