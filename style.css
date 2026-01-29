@@ -1,37 +1,138 @@
-body {
-    font-family: Arial, sans-serif;
+* {
     margin: 0;
     padding: 0;
-    background: #f8f8f8;
-    color: #333;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
 }
 
+body {
+    font-family: "Segoe UI", sans-serif;
+    background: #f4f6f8;
+    color: #222;
+}
+
+/* Navigation */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background: white;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #007acc;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+}
+
+nav a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+}
+
+nav a:hover {
+    color: #007acc;
+}
+
+/* Header */
 header {
-    background: #007acc;
+    height: 90vh;
+    background: linear-gradient(135deg, #007acc, #00c6ff);
     color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
     padding: 2rem;
+}
+
+header h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+header p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+/* Buttons */
+.button {
+    background: white;
+    color: #007acc;
+    padding: 0.8rem 1.5rem;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.button:hover {
+    transform: scale(1.1);
+    background: #f1f1f1;
+}
+
+/* Sections */
+section {
+    padding: 4rem 10%;
     text-align: center;
 }
 
-h1 {
-    margin: 0;
+section h2 {
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
+    color: #007acc;
 }
 
-section {
-    padding: 1.5rem;
+/* Cards */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
 }
 
-a {
+.card {
+    background: white;
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
+.card h3 {
+    margin-bottom: 1rem;
+}
+
+.card a {
+    display: inline-block;
+    margin-top: 1rem;
     color: #007acc;
     text-decoration: none;
-}
-a:hover {
-    text-decoration: underline;
+    font-weight: bold;
 }
 
+/* Footer */
 footer {
+    background: #222;
+    color: white;
     text-align: center;
-    padding: 1rem;
-    font-size: 0.8rem;
-    background: #eee;
+    padding: 1.5rem;
 }
