@@ -7,8 +7,8 @@
 
 body {
     font-family: "Inter", Arial, sans-serif;
-    background: #ffffff; /* Weißer Hintergrund für die Seite */
-    color: #200; /* Dunkelgrauer Text */
+    background: #fff; /* Weißer Hintergrund */
+    color: #333; /* Dunkelgrau für Text */
     line-height: 1.6;
 }
 
@@ -18,17 +18,27 @@ nav {
     justify-content: space-between;
     align-items: center;
     padding: 1rem 2rem;
-    background: white;
+    background: #fff;
     position: sticky;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: background 0.3s;
+}
+
+nav.scrolled {
+    background: #cc0000;
 }
 
 .logo {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     font-weight: 700;
-    color: #cc0000; /* Rot für Logo */
+    color: #cc0000;
+    transition: color 0.3s;
+}
+
+nav.scrolled .logo {
+    color: #fff;
 }
 
 .menu-toggle {
@@ -43,27 +53,27 @@ nav {
 .nav-links {
     display: flex;
     list-style: none;
-}
-
-.nav-links li {
-    margin-left: 2rem;
+    gap: 2rem;
 }
 
 .nav-links a {
     text-decoration: none;
     color: #cc0000;
     font-weight: 600;
-    transition: color 0.3s;
+    padding: 0.3rem 0.5rem;
+    border-radius: 8px;
+    transition: background 0.3s, color 0.3s;
 }
 
 .nav-links a:hover {
-    color: #ff3333;
+    background: #cc0000;
+    color: #fff;
 }
 
 /* --- Header --- */
 header {
     min-height: 90vh;
-    background: #cc0000; /* Roter Header */
+    background: linear-gradient(135deg, #cc0000, #ff3333);
     color: white;
     text-align: center;
     padding: 4rem 1rem;
@@ -71,52 +81,78 @@ header {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /* Optional: sanfter Übergang nach unten */
-    background: linear-gradient(to bottom, #cc0000 80%, #ffffff 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+header::after {
+    content: "";
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 50%;
+    top: -50%;
+    left: -50%;
+    transform: rotate(45deg);
 }
 
 header h1 {
-    font-size: 2.5rem;
+    font-size: 3rem;
     margin-bottom: 1rem;
-    color: white;
 }
 
 header p {
     font-size: 1.2rem;
     margin-bottom: 2rem;
-    color: white;
+    max-width: 700px;
 }
 
 header .button {
     display: inline-block;
-    background: white;
+    background: #fff;
     color: #cc0000;
-    padding: 0.8rem 1.5rem;
-    border-radius: 30px;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    font-weight: 700;
     text-decoration: none;
-    font-weight: 900;
-    transition: transform 0.3s, box-shadow 0.3s;
+    transition: all 0.3s;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
 }
 
 header .button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 12px rgba(0,0,0,0.2);
-    background: #f0f0f0;
+    background: #ffcccc;
+    transform: translateY(-3px) scale(1.05);
 }
 
 /* --- Sections --- */
 section {
-    padding: 4rem 1.5rem;
-    max-width: 1900px;
+    padding: 5rem 1.5rem;
+    max-width: 1600px;
     margin: auto;
     text-align: center;
-    background: #ffffff; /* Weißer Hintergrund */
+    background: #fff;
+}
+
+section:nth-child(even) {
+    background: #f9f9f9;
 }
 
 section h2 {
-    font-size: 2rem;
-    color: #cc0000; /* Rot für Überschriften */
+    font-size: 2.5rem;
+    color: #cc0000;
     margin-bottom: 2rem;
+    position: relative;
+}
+
+section h2::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: #cc0000;
+    margin: 0.5rem auto 0;
+    border-radius: 2px;
 }
 
 /* --- Cards --- */
@@ -128,29 +164,28 @@ section h2 {
 }
 
 .card {
-    background: white;
-    width: 800px; /* Breiter */
+    background: #fff;
+    width: 700px;
     max-width: 90%;
     padding: 2rem;
     border-radius: 20px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
     border: 2px solid #cc0000;
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
 }
 
 .card h3 {
-    margin-bottom: 1rem;
     color: #cc0000;
+    margin-bottom: 1rem;
 }
 
 .card p {
-    margin-bottom: 1rem;
-    color: #333333;
+    color: #555;
 }
 
 /* --- Video Thumbnail --- */
@@ -159,45 +194,43 @@ section h2 {
     border-radius: 15px;
     margin-top: 1rem;
     cursor: pointer;
-    transition: transform 0.3s;
+    transition: transform 0.3s, box-shadow 0.3s;
     border: 2px solid #cc0000;
 }
 
 .video-thumb:hover {
     transform: scale(1.05);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
 }
 
 /* --- Card Buttons --- */
 .card .button {
     display: inline-block;
     background: #cc0000;
-    color: white;
-    padding: 0.6rem 1.2rem;
-    border-radius: 20px;
+    color: #fff;
+    padding: 0.8rem 1.5rem;
+    border-radius: 50px;
     text-decoration: none;
     font-weight: 600;
-    margin-top: 0.8rem;
-    transition: background 0.3s, transform 0.3s;
+    margin-top: 1rem;
     border: 2px solid #cc0000;
+    transition: all 0.3s;
 }
 
 .card .button:hover {
-    background: white;
+    background: #fff;
     color: #cc0000;
-    transform: translateY(-2px);
+    transform: translateY(-3px) scale(1.05);
 }
 
 /* --- Footer --- */
 footer {
-    background: #990000; /* Dunkleres Rot */
+    background: #cc0000;
     color: white;
     text-align: center;
-    padding: 2rem 1rem;
-    border-top: 3px solid white;
-}
-
-footer p {
-    color: white;
+    padding: 2.5rem 1rem;
+    border-top: 3px solid #fff;
+    font-size: 0.95rem;
 }
 
 /* --- Responsive --- */
@@ -210,7 +243,7 @@ footer p {
         display: none;
         flex-direction: column;
         width: 100%;
-        background: white;
+        background: #fff;
         position: absolute;
         top: 60px;
         left: 0;
@@ -225,12 +258,6 @@ footer p {
     .nav-links li {
         margin: 1rem 0;
         text-align: center;
-    }
-
-    .nav-links a {
-        color: #cc0000;
-        padding: 0.5rem 0;
-        display: block;
     }
 
     header h1 {
