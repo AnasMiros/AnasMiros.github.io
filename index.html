@@ -3,15 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <title>A.M | Portfolio</title>
-
     <!-- Normalize for consistent styling -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/2.0.0/modern-normalize.min.css">
-
     <!-- Google Font with fallback -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -36,7 +35,7 @@
 <section id="about">
     <h2>About Me</h2>
     <p>
-        Hello! My name is Anastassya — I’m a student at HTW Berlin studying Computer Engineering. 
+        Hello! My name is Anastassya — I'm a student at HTW Berlin studying Computer Engineering. 
         I have a passion for software development, robotics, and interactive systems, and I love building projects 
         that bring creativity and technology together.
     </p>
@@ -69,27 +68,37 @@
 
 <section id="contact">
     <h2>Contact</h2>
+    <p class="contact-description">
+        Feel free to reach out to me via email. I'm always open to discussing new opportunities, projects, or collaborations.
+    </p>
+    
     <div class="contact-buttons">
-        <a class="button" href="mailto:private.email@example.com">Private Email</a>
-        <a class="button" href="mailto:Anastassya.Miroslaw@student.htw-berlin.de">University Email</a>
+        <!-- Private Email Button -->
+        <a href="mailto:private.email@example.com" class="email-button private">
+            <i class="fas fa-envelope email-icon"></i>
+            <div class="email-content">
+                <span class="email-label">Private Email</span>
+                <span class="email-address">private.email@example.com</span>
+            </div>
+            <i class="fas fa-arrow-right arrow-icon"></i>
+        </a>
+        
+        <!-- Public/University Email Button -->
+        <a href="mailto:Anastassya.Miroslaw@student.htw-berlin.de" class="email-button public">
+            <i class="fas fa-university email-icon"></i>
+            <div class="email-content">
+                <span class="email-label">University Email</span>
+                <span class="email-address">Anastassya.Miroslaw@student.htw-berlin.de</span>
+            </div>
+            <i class="fas fa-arrow-right arrow-icon"></i>
+        </a>
     </div>
 </section>
-
 
 <footer>
     <p>© 2026 A.M | GitHub Pages</p>
 </footer>
 
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-    var toggle = document.querySelector(".menu-toggle");
-    var nav = document.querySelector(".nav-links");
-
-    toggle.addEventListener("click", function () {
-        nav.classList.toggle("show");
-    });
-});
-</script>
-
+<script src="script.js"></script>
 </body>
 </html>
