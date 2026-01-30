@@ -52,11 +52,12 @@ function createSword(container, side) {
   const sword = document.createElement("div");
   sword.classList.add("sword");
 
+  const pommel = document.createElement("div");
+  pommel.classList.add("pommel");
+    
   const handle = document.createElement("div");
   handle.classList.add("handle");
 
-  const pommel = document.createElement("div");
-  pommel.classList.add("pommel");
 
   sword.appendChild(handle);
   sword.appendChild(pommel);
