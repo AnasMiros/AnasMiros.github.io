@@ -52,14 +52,19 @@ function createSword(container, side) {
   const sword = document.createElement("div");
   sword.classList.add("sword");
 
-  const pommel = document.createElement("div");
-  pommel.classList.add("pommel");
-    
+  const guard = document.createElement("div");
+  guard.classList.add("guard");
+
   const handle = document.createElement("div");
   handle.classList.add("handle");
 
-  sword.appendChild(pommel);
+  const pommel = document.createElement("div");
+  pommel.classList.add("pommel");
+
+
+  sword.appendChild(guard);
   sword.appendChild(handle);
+  sword.appendChild(pommel);
 
 
   if (side === "left") {
