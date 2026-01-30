@@ -439,7 +439,7 @@ footer {
 .arena {
   position: relative;
   width: 100%;
-  max-width: 400px;
+  max-width: 200px;
   height: 200px;
   margin: 2rem auto;
   display: flex;
