@@ -1,3 +1,44 @@
+// ===== Navigation Scroll Effect =====
+window.addEventListener('scroll', function() {
+    const nav = document.querySelector('nav');
+    if (window.scrollY > 50) {
+        nav.classList.add('scrolled');
+    } else {
+        nav.classList.remove('scrolled');
+    }
+});
+
+// ===== Mobile Menu Toggle =====
+const menuToggle = document.querySelector('.menu-toggle');
+const navLinks = document.querySelector('.nav-links');
+
+if (menuToggle) {
+    menuToggle.addEventListener('click', function() {
+        navLinks.classList.toggle('show');
+    });
+}
+
+// ===== Smooth Scrolling =====
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+            // Close mobile menu if open
+            navLinks.classList.remove('show');
+            
+            window.scrollTo({
+                top: targetElement.offsetTop - 70,
+                behavior: 'smooth'
+            });
+        }
+    });
+});
+
 // ===== Fight Scene Animation =====
 const arena = document.querySelector(".arena");
 const leftLayer = document.querySelector(".creativity .sword-layer");
@@ -23,10 +64,9 @@ function createSword(container, side) {
   return sword;
 }
 
-const swordL = createSword(leftLayer, "left");
-const swordR = createSword(rightLayer, "right");
-
 function createSpark() {
+  if (!arena) return;
+  
   const spark = document.createElement("div");
   spark.classList.add("spark");
 
@@ -44,6 +84,8 @@ function createSpark() {
 }
 
 function clash() {
+  if (!swordL || !swordR) return;
+  
   swordL.classList.remove("clash-left");
   swordR.classList.remove("clash-right");
 
@@ -58,5 +100,12 @@ function clash() {
   }, 400);
 }
 
-setInterval(clash, 2200);
-clash();
+// Initialize fight scene only if elements exist
+if (arena && leftLayer && rightLayer) {
+  const swordL = createSword(leftLayer, "left");
+  const swordR = createSword(rightLayer, "right");
+  
+  // Start animation
+  clash();
+  setInterval(clash, 2200);
+}
