@@ -441,6 +441,21 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 </script>
+    <section id="fight-scene">
+  <h2>Creativity vs Technology</h2>
+
+  <div class="arena">
+    <div class="fighter creativity">
+      <span class="label">Creativity</span>
+      <div class="sword-layer"></div>
+    </div>
+
+    <div class="fighter technology">
+      <span class="label">Technology</span>
+      <div class="sword-layer"></div>
+    </div>
+  </div>
+</section>
 </body>
 </html>/* --- Reset & Base --- */
 * {
@@ -862,72 +877,5 @@ footer {
         max-width: 350px;
         min-width: auto;
     }
-<section id="fight-scene">
-  <h2>Creativity vs Technology</h2>
-  <div class="arena">
-    <div class="fighter creativity">Creativity</div>
-    <div class="fighter technology">Technology</div>
-  </div>
-</section>
 
-<style>
-.arena {
-  position: relative;
-  width: 100%;
-  max-width: 100px;
-  height: 100px;
-  margin: 2rem auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.fighter {
-  font-weight: bold;
-  color: black;
-  padding: 1rem 2rem;
-  cursor: pointer;
-  font-size: 1.5rem;
-}
-
-.creativity {
-  background: white ;
-}
-
-.technology {
-  background: white; 
-}
-
-.sword {
-  position: absolute;
-  width: 4px;
-  height: 80px;
-  background: grey;
-  transform-origin: bottom center;
-}
-
-@keyframes clashLeft {
-  0%, 100% { transform: translateX(0) rotate(0deg); }
-  50% { transform: translateX(200px) rotate(45deg); }
-}
-
-@keyframes clashRight {
-  0%, 100% { transform: translateX(0) rotate(0deg); }
-  50% { transform: translateX(-200px) rotate(-45deg); }
-}
-<section id="fight-scene">
-  <h2>Creativity vs Technology</h2>
-
-  <div class="arena">
-    <div class="fighter creativity">
-      <span class="label">Creativity</span>
-      <div class="sword-layer"></div>
-    </div>
-
-    <div class="fighter technology">
-      <span class="label">Technology</span>
-      <div class="sword-layer"></div>
-    </div>
-  </div>
-</section>
 
