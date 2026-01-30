@@ -435,20 +435,20 @@ footer {
   }
 }
 
-/* === KAMPF SZENE === */
+/* === KAMPF SZENE - KLEINER === */
 .arena {
   position: relative;
   width: 100%;
-  max-width: 600px;
-  height: 100px;
-  margin: 2rem auto;
+  max-width: 500px;
+  height: 150px;
+  margin: 2rem auto 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
   background: linear-gradient(to bottom, #f0f0f0, #e0e0e0);
-  border-radius: 15px;
-  padding: 0 2rem;
-  border: 3px solid transparent;
+  border-radius: 10px;
+  padding: 0 1.5rem;
+  border: 2px solid #ddd;
   overflow: hidden;
 }
 
@@ -456,21 +456,21 @@ footer {
   position: relative;
   font-weight: bold;
   color: white;
-  padding: 1.5rem 2.5rem;
-  border-radius: 10px;
-  font-size: 1.8rem;
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+  padding: 1rem 1.8rem;
+  border-radius: 8px;
+  font-size: 1.4rem;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
   z-index: 2;
 }
 
 .creativity {
   background: linear-gradient(135deg, #0066cc, #3399ff);
-  box-shadow: 0 6px 15px rgba(0, 102, 204, 0.4);
+  box-shadow: 0 4px 12px rgba(0, 102, 204, 0.3);
 }
 
 .technology {
   background: linear-gradient(135deg, #cc0000, #ff3333);
-  box-shadow: 0 6px 15px rgba(204, 0, 0, 0.4);
+  box-shadow: 0 4px 12px rgba(204, 0, 0, 0.3);
 }
 
 /* Sword */
@@ -480,11 +480,11 @@ footer {
   pointer-events: none;
 }
 
-/* Sword */
+/* Sword - kleiner */
 .sword {
   position: absolute;
-  width: 10px;
-  height: 140px;
+  width: 8px;
+  height: 100px;
   top: 50%;
   transform: translateY(-20%);
   transform-origin: bottom center;
@@ -495,58 +495,59 @@ footer {
 
 /* Position für linkes Schwert */
 .fighter.creativity .sword {
-  left: -20px; /* ← HIER WERT ÄNDERN */
+  left: -15px;
 }
 
 /* Position für rechtes Schwert */  
 .fighter.technology .sword {
-  right: -20px; /* ← HIER WERT ÄNDERN */
+  right: -15px;
 }
-/* Klinge */
+
+/* Klinge - kleiner */
 .sword::before {
   content: "";
-  width: 6px;
-  height: 90px;
+  width: 5px;
+  height: 65px;
   background: linear-gradient(to top, #bbb, #fff, #ddd);
-  border-radius: 3px;
-  box-shadow: 0 0 10px rgba(255,255,255,0.6);
+  border-radius: 2px;
+  box-shadow: 0 0 8px rgba(255,255,255,0.5);
 }
 
-/* Parierstange */
+/* Parierstange - kleiner */
 .sword::after {
   content: "";
-  width: 40px;
-  height: 6px;
+  width: 30px;
+  height: 5px;
   background: linear-gradient(to right, #444, #888, #444);
   margin-top: -5px;
-  border-radius: 3px;
+  border-radius: 2px;
 }
 
-/* Griff */
+/* Griff - kleiner */
 .sword .handle {
-  width: 8px;
-  height: 30px;
+  width: 7px;
+  height: 22px;
   background: linear-gradient(to bottom, #4b2e1e, #2b1a10);
-  border-radius: 3px;
-  margin-top: 4px;
+  border-radius: 2px;
+  margin-top: 3px;
 }
 
-/* Knauf */
+/* Knauf - kleiner */
 .sword .pommel {
-  width: 12px;
-  height: 12px;
+  width: 10px;
+  height: 10px;
   background: radial-gradient(circle, #999, #555);
   border-radius: 50%;
-  margin-top: 4px;
+  margin-top: 3px;
 }
 
-/* Animationen */
+/* Animationen anpassen */
 @keyframes clashLeft {
   0%, 100% {
     transform: translateY(-50%) rotate(0deg);
   }
   50% {
-    transform: translateY(-50%) translateX(120px) rotate(45deg);
+    transform: translateY(-50%) translateX(90px) rotate(45deg);
   }
 }
 
@@ -555,7 +556,7 @@ footer {
     transform: translateY(-50%) rotate(0deg);
   }
   50% {
-    transform: translateY(-50%) translateX(-120px) rotate(-45deg);
+    transform: translateY(-50%) translateX(-90px) rotate(-45deg);
   }
 }
 
@@ -623,21 +624,27 @@ footer {
   }
 
   .arena {
-    height: 150px;
+    height: 120px;
     max-width: 90%;
     padding: 0 1rem;
+    margin-top: 1.5rem;
   }
 
   .fighter {
-    padding: 1rem 1.5rem;
-    font-size: 1.4rem;
+    padding: 0.8rem 1.2rem;
+    font-size: 1.2rem;
   }
 
   .sword {
-    height: 120px;
+    height: 85px;
   }
 
   .sword::before {
-    height: 75px;
+    height: 55px;
+  }
+
+  .sword::after {
+    width: 25px;
+    height: 4px;
   }
 }
