@@ -44,6 +44,9 @@ const arena = document.querySelector(".arena");
 const leftLayer = document.querySelector(".creativity .sword-layer");
 const rightLayer = document.querySelector(".technology .sword-layer");
 
+// Schwert-Referenzen global verfügbar machen
+let swordL, swordR;
+
 function createSword(container, side) {
   const sword = document.createElement("div");
   sword.classList.add("sword");
@@ -57,8 +60,11 @@ function createSword(container, side) {
   sword.appendChild(handle);
   sword.appendChild(pommel);
 
-  if (side === "left") sword.style.left = "120px";
-  else sword.style.right = "120px";
+  if (side === "left") {
+    sword.style.left = "120px";
+  } else {
+    sword.style.right = "120px";
+  }
 
   container.appendChild(sword);
   return sword;
@@ -102,10 +108,18 @@ function clash() {
 
 // Initialize fight scene only if elements exist
 if (arena && leftLayer && rightLayer) {
-  const swordL = createSword(leftLayer, "left");
-  const swordR = createSword(rightLayer, "right");
+  swordL = createSword(leftLayer, "left");
+  swordR = createSword(rightLayer, "right");
   
   // Start animation
   clash();
   setInterval(clash, 2200);
+  
+  console.log("Fight scene initialized. Swords created:", swordL, swordR);
+} else {
+  console.log("Fight scene elements not found:", {
+    arena: !!arena,
+    leftLayer: !!leftLayer,
+    rightLayer: !!rightLayer
+  });
 }
