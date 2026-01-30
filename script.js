@@ -1,73 +1,62 @@
-document.addEventListener("DOMContentLoaded", () => {
+// ===== Fight Scene Animation =====
+const arena = document.querySelector(".arena");
+const leftLayer = document.querySelector(".creativity .sword-layer");
+const rightLayer = document.querySelector(".technology .sword-layer");
 
-  // ===== Mobile Navigation =====
-  const toggle = document.querySelector(".menu-toggle");
-  const navLinks = document.querySelector(".nav-links");
+function createSword(container, side) {
+  const sword = document.createElement("div");
+  sword.classList.add("sword");
 
-  toggle.addEventListener("click", () => {
-    navLinks.classList.toggle("show");
-  });
+  const handle = document.createElement("div");
+  handle.classList.add("handle");
 
-  // ===== Scroll Effect =====
-  const nav = document.querySelector("nav");
-  window.addEventListener("scroll", () => {
-    if (window.scrollY > 50) {
-      nav.classList.add("scrolled");
-    } else {
-      nav.classList.remove("scrolled");
-    }
-  });
+  const pommel = document.createElement("div");
+  pommel.classList.add("pommel");
 
-  // ===== Fight Scene Animation =====
-  const arena = document.querySelector(".arena");
-  const leftLayer = document.querySelector(".creativity .sword-layer");
-  const rightLayer = document.querySelector(".technology .sword-layer");
+  sword.appendChild(handle);
+  sword.appendChild(pommel);
 
-  function createSword(container, side) {
-    const sword = document.createElement("div");
-    sword.classList.add("sword");
+  if (side === "left") sword.style.left = "120px";
+  else sword.style.right = "120px";
 
-    if (side === "left") sword.style.left = "100px";
-    else sword.style.right = "100px";
+  container.appendChild(sword);
+  return sword;
+}
 
-    container.appendChild(sword);
-    return sword;
-  }
+const swordL = createSword(leftLayer, "left");
+const swordR = createSword(rightLayer, "right");
 
-  const swordL = createSword(leftLayer, "left");
-  const swordR = createSword(rightLayer, "right");
+function createSpark() {
+  const spark = document.createElement("div");
+  spark.classList.add("spark");
 
-  function createSpark() {
-    const spark = document.createElement("div");
-    spark.classList.add("spark");
+  const angle = Math.random() * Math.PI * 2;
+  const distance = 40 + Math.random() * 20;
 
-    const angle = Math.random() * Math.PI * 2;
-    const distance = 30 + Math.random() * 20;
+  spark.style.setProperty("--x", `${Math.cos(angle) * distance}px`);
+  spark.style.setProperty("--y", `${Math.sin(angle) * distance}px`);
 
-    spark.style.setProperty("--x", `${Math.cos(angle) * distance}px`);
-    spark.style.setProperty("--y", `${Math.sin(angle) * distance}px`);
+  spark.style.left = "50%";
+  spark.style.top = "50%";
 
-    spark.style.left = "50%";
-    spark.style.top = "50%";
+  arena.appendChild(spark);
+  setTimeout(() => spark.remove(), 600);
+}
 
-    arena.appendChild(spark);
-    setTimeout(() => spark.remove(), 600);
-  }
+function clash() {
+  swordL.classList.remove("clash-left");
+  swordR.classList.remove("clash-right");
 
-  function clash() {
-    swordL.style.animation = "none";
-    swordR.style.animation = "none";
+  // Erzwingt Reflow → garantiert Neustart der Animation
+  void swordL.offsetWidth;
 
-    setTimeout(() => {
-      swordL.style.animation = "clashLeft 0.8s ease-in-out";
-      swordR.style.animation = "clashRight 0.8s ease-in-out";
+  swordL.classList.add("clash-left");
+  swordR.classList.add("clash-right");
 
-      setTimeout(() => {
-        for (let i = 0; i < 5; i++) createSpark();
-      }, 400);
-    }, 10);
-  }
+  setTimeout(() => {
+    for (let i = 0; i < 8; i++) createSpark();
+  }, 400);
+}
 
-  clash();
-  setInterval(clash, 2500);
-});
+setInterval(clash, 2200);
+clash();
