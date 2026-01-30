@@ -41,8 +41,9 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 // ===== Fight Scene Animation =====
 const arena = document.querySelector(".arena");
-const leftLayer = document.querySelector(".creativity .sword-layer");
-const rightLayer = document.querySelector(".technology .sword-layer");
+// FIXED: Added .fighter before the class names
+const leftLayer = document.querySelector(".fighter.creativity .sword-layer");
+const rightLayer = document.querySelector(".fighter.technology .sword-layer");
 
 // Schwert-Referenzen global verfügbar machen
 let swordL, swordR;
