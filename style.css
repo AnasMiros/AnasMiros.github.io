@@ -85,6 +85,7 @@ header {
     overflow: hidden;
 }
 
+/* Stelle sicher, dass Header-Inhalt über Icons liegt */
 header h1,
 header p,
 header .button {
@@ -432,36 +433,18 @@ footer {
   pointer-events: none;
 }
 
-/* SCHWERTER - verbessert aber einfach (wie vorher mit Rohren-Design) */
 .sword {
   position: absolute;
-  width: 8px; /* Etwas breiter als vorher (war 4px) */
+  width: 4px;
   height: 120px;
-  background: linear-gradient(to bottom, #888, #ccc, #888); /* Besserer Metall-Look */
-  border-radius: 4px;
+  background: linear-gradient(to top, #666, #999);
+  border-radius: 2px;
   top: 50%;
   transform: translateY(-50%);
   transform-origin: bottom center;
   box-shadow: 0 0 10px rgba(0,0,0,0.5);
-  
-  /* Einfache Schwertspitze */
-  border-top: 1px solid #555;
-  border-bottom: 3px solid #333; /* Griff-Imitat */
 }
 
-/* Für das rechte Schwert (Technology) */
-.technology .sword {
-  background: linear-gradient(to bottom, #a00, #f55, #a00);
-  border-bottom: 3px solid #500;
-}
-
-/* Für das linke Schwert (Creativity) */
-.creativity .sword {
-  background: linear-gradient(to bottom, #06c, #5cf, #06c);
-  border-bottom: 3px solid #024;
-}
-
-/* Animationen wie vorher */
 @keyframes clashLeft {
   0%, 100% { transform: translateY(-50%) rotate(0deg); }
   50% { transform: translateY(-50%) translateX(100px) rotate(45deg); }
