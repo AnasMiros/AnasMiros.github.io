@@ -486,8 +486,8 @@ footer {
 /* Sword - kleiner */
 .sword {
   position: absolute;
-  width: 8px;
-  height: 100px;
+  width: 10px;
+  height: 110px;
   top: 50%;
   transform: translateY(-50%);
   transform-origin: bottom center;
@@ -509,38 +509,46 @@ footer {
 /* Klinge - kleiner */
 .sword::before {
   content: "";
-  width: 5px;
-  height: 65px;
-  background: linear-gradient(to top, #bbb, #fff, #ddd);
-  border-radius: 2px;
-  box-shadow: 0 0 8px rgba(255,255,255,0.5);
+  width: 6px;
+  height: 75px;
+  background: linear-gradient(
+    to top,
+    #666,
+    #ddd,
+    #ffffff,
+    #ddd,
+    #999
+  );
+  border-radius: 1px;
+  box-shadow:
+    0 0 6px rgba(255,255,255,0.8),
+    inset 0 0 4px rgba(255,255,255,0.8);
 }
-
 /* Parierstange - kleiner */
 .sword::after {
   content: "";
-  width: 30px;
-  height: 5px;
-  background: linear-gradient(to right, #444, #888, #444);
-  margin-top: -5px;
+  width: 34px;
+  height: 4px;
+  background: linear-gradient(to right, #333, #aaa, #333);
+  margin-top: -6px;
   border-radius: 2px;
 }
-/* Knauf - kleiner */
-.sword .pommel {
-  width: 10px;
-  height: 10px;
-  background: radial-gradient(circle, #999, #555);
-  border-radius: 50%;
-  margin-top: 3px;
-}
-
-/* Griff - kleiner */
+//* Griff – dunkles Leder */
 .sword .handle {
   width: 7px;
-  height: 22px;
-  background: linear-gradient(to bottom, #4b2e1e, #2b1a10);
+  height: 25px;
+  background: linear-gradient(to bottom, #2a1a10, #4b2e1e);
   border-radius: 2px;
-  margin-top: 3px;
+  margin-top: 4px;
+}
+
+/* Knauf – Metall */
+.sword .pommel {
+  width: 12px;
+  height: 12px;
+  background: radial-gradient(circle, #bbb, #444);
+  border-radius: 50%;
+  margin-top: 4px;
 }
 
 
