@@ -62,9 +62,9 @@ function createSword(container, side) {
   sword.appendChild(pommel);
 
   if (side === "left") {
-    sword.style.left = "50px";
+    sword.style.left = "100px";
   } else {
-    sword.style.right = "50px";
+    sword.style.right = "100px";
   }
 
   container.appendChild(sword);
