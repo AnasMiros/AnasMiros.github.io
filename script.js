@@ -58,9 +58,9 @@ function createSword(container, side) {
   const handle = document.createElement("div");
   handle.classList.add("handle");
 
-
-  sword.appendChild(handle);
   sword.appendChild(pommel);
+  sword.appendChild(handle);
+
 
   if (side === "left") {
     sword.style.left = "90px";
