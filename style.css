@@ -472,11 +472,11 @@ footer {
   background: linear-gradient(135deg, #cc0000, #ff3333);
 }
 
-/* === WITCHER-STIL SCHWERTER - KOMPAKT === */
+/* === WITCHER-STIL SCHWERTER - KOMPAKT & GESCHLOSSEN === */
 .sword {
   position: absolute;
   width: 6px;
-  height: 100px; /* Kürzer gemacht */
+  height: 95px; /* Kürzeres Schwert */
   top: 50%;
   transform: translateY(-50%);
   transform-origin: bottom center;
@@ -500,19 +500,20 @@ footer {
 .sword::before {
   content: "";
   width: 5px;
-  height: 65px; /* Kürzere Klinge */
+  height: 55px; /* Kürzere Klinge */
   background: linear-gradient(
     to top,
     #222 0%,
-    #555 25%,
-    #888 50%,
-    #bbb 75%,
-    #ddd 100%
+    #444 20%,
+    #666 40%,
+    #888 60%,
+    #aaa 80%,
+    #ccc 100%
   );
   border-radius: 1px 1px 0 0;
   box-shadow:
-    0 0 4px rgba(150, 150, 150, 0.3),
-    inset 0 0 3px rgba(255, 255, 255, 0.4);
+    0 0 4px rgba(100, 100, 100, 0.3),
+    inset 0 0 2px rgba(255, 255, 255, 0.4);
   position: relative;
   z-index: 2;
   clip-path: polygon(0% 0%, 100% 0%, 100% 95%, 50% 100%, 0% 95%);
@@ -524,20 +525,21 @@ footer {
   background: linear-gradient(
     to top,
     #222 0%,
-    #555 25%,
-    #888 50%,
-    #bbb 75%,
-    #ddd 100%
+    #444 20%,
+    #666 40%,
+    #888 60%,
+    #aaa 80%,
+    #ccc 100%
   );
   box-shadow:
-    0 0 4px rgba(150, 150, 150, 0.3),
-    inset 0 0 3px rgba(255, 255, 255, 0.4);
+    0 0 4px rgba(100, 100, 100, 0.3),
+    inset 0 0 2px rgba(255, 255, 255, 0.4);
 }
 
-/* Parierstange - Kompakt */
+/* Parierstange - Direkt an Klinge anschließend */
 .guard {
-  width: 35px;
-  height: 6px;
+  width: 32px;
+  height: 5px;
   background: linear-gradient(to right, 
     #2c1810 0%,
     #5a3820 25%,
@@ -545,13 +547,13 @@ footer {
     #5a3820 75%,
     #2c1810 100%
   );
-  border-radius: 3px;
+  border-radius: 2px;
   position: relative;
   z-index: 3;
-  margin-top: -1px; /* Weniger Abstand */
+  margin-top: -1px; /* Eng an Klinge anschließen */
   box-shadow: 
-    0 0 4px rgba(139, 69, 19, 0.6),
-    inset 0 0 2px rgba(255, 215, 0, 0.2);
+    0 0 3px rgba(139, 69, 19, 0.5),
+    inset 0 0 1px rgba(255, 215, 0, 0.2);
 }
 
 /* Wolfskopf-Design für die Parierstange - Kompakt */
@@ -559,32 +561,32 @@ footer {
 .guard::after {
   content: "";
   position: absolute;
-  width: 10px;
-  height: 12px;
+  width: 8px;
+  height: 10px;
   background: linear-gradient(to bottom, 
     #3a2818 0%,
     #5a3c20 50%,
     #3a2818 100%
   );
   border-radius: 50% 50% 0 0;
-  top: -5px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+  top: -4px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 .guard::before {
-  left: -6px;
+  left: -5px;
   transform: rotate(-15deg);
 }
 
 .guard::after {
-  right: -6px;
+  right: -5px;
   transform: rotate(15deg);
 }
 
-/* Griff - Kompakt */
+/* Griff - Direkt an Parierstange anschließend */
 .sword .handle {
   width: 7px;
-  height: 20px; /* Kürzerer Griff */
+  height: 22px; /* Kürzerer Griff */
   background: 
     repeating-linear-gradient(
       to bottom,
@@ -594,12 +596,12 @@ footer {
       #4b2e1e 4px
     );
   border-radius: 2px;
-  margin-top: 2px; /* Weniger Abstand */
   position: relative;
   z-index: 1;
   box-shadow: 
     inset 0 0 3px rgba(0, 0, 0, 0.6),
     0 1px 2px rgba(0, 0, 0, 0.2);
+  /* Kein margin-top - direkt an Parierstange anschließend */
 }
 
 /* Metallringe am Griff - Kompakt */
@@ -626,10 +628,10 @@ footer {
   bottom: 4px;
 }
 
-/* Knauf - Kompakt */
+/* Knauf - Direkt an Griff anschließend */
 .sword .pommel {
-  width: 12px;
-  height: 12px;
+  width: 10px;
+  height: 10px;
   background: radial-gradient(
     circle at 30% 30%,
     #d4c4b4 0%,
@@ -638,12 +640,12 @@ footer {
     #2a1a10 100%
   );
   border-radius: 50%;
-  margin-top: 3px; /* Weniger Abstand */
-  box-shadow: 
-    0 0 5px rgba(139, 69, 19, 0.5),
-    inset 0 0 2px rgba(255, 255, 255, 0.2);
   position: relative;
   z-index: 1;
+  box-shadow: 
+    0 0 4px rgba(139, 69, 19, 0.4),
+    inset 0 0 1px rgba(255, 255, 255, 0.2);
+  /* Kein margin-top - direkt an Griff anschließend */
 }
 
 /* Dekoratives Muster auf dem Knauf - Kompakt */
@@ -653,7 +655,7 @@ footer {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 6px;
+  font-size: 5px;
   color: rgba(255, 215, 0, 0.6);
   text-shadow: 0 0 1px rgba(0, 0, 0, 0.4);
 }
@@ -754,33 +756,35 @@ footer {
 
   /* Responsive für Witcher-Schwerter */
   .sword {
-    height: 85px;
+    height: 80px;
   }
   
   .sword::before {
-    height: 55px;
+    height: 45px;
   }
   
   .guard {
-    width: 30px;
+    width: 28px;
+    height: 4px;
   }
   
   .guard::before,
   .guard::after {
-    width: 8px;
-    height: 10px;
+    width: 7px;
+    height: 8px;
   }
   
   .sword .handle {
     height: 18px;
+    width: 6px;
   }
   
   .sword .pommel {
-    width: 10px;
-    height: 10px;
+    width: 8px;
+    height: 8px;
   }
   
   .pommel::before {
-    font-size: 5px;
+    font-size: 4px;
   }
 }
