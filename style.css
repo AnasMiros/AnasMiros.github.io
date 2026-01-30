@@ -445,11 +445,10 @@ footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: linear-gradient(to bottom, #f0f0f0, #e0e0e0);
+  background: transparent;
   border-radius: 10px;
   padding: 0 1.5rem;
-  border: 2px solid #ddd;
-  overflow: hidden;
+  border: none;
 }
 
 .fighter {
@@ -459,7 +458,6 @@ footer {
   padding: 1rem 1.8rem;
   border-radius: 8px;
   font-size: 1.4rem;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
   z-index: 2;
   height: 60px; /* z.B. feste Höhe */
   display: flex;
@@ -468,12 +466,10 @@ footer {
 
 .creativity {
   background: linear-gradient(135deg, #0066cc, #3399ff);
-  box-shadow: 0 4px 12px rgba(0, 102, 204, 0.3);
 }
 
 .technology {
   background: linear-gradient(135deg, #cc0000, #ff3333);
-  box-shadow: 0 4px 12px rgba(204, 0, 0, 0.3);
 }
 
 /* Sword */
@@ -525,12 +521,11 @@ footer {
     inset 0 0 4px rgba(255,255,255,0.8);
 }
 /* Parierstange - kleiner */
-.sword::after {
-  content: "";
+.guard {
   width: 34px;
   height: 4px;
   background: linear-gradient(to right, #333, #aaa, #333);
-  margin-top: -6px;
+  margin-top: -2px;
   border-radius: 2px;
 }
 //* Griff – dunkles Leder */
@@ -541,7 +536,6 @@ footer {
   border-radius: 2px;
   margin-top: 4px;
 }
-
 /* Knauf – Metall */
 .sword .pommel {
   width: 12px;
@@ -550,9 +544,6 @@ footer {
   border-radius: 50%;
   margin-top: 4px;
 }
-
-
-
 /* Animationen anpassen */
 @keyframes clashLeft {
   0%, 100% {
