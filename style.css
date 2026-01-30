@@ -1,373 +1,625 @@
-/* === VERBESSERTE KAMPF SZENE === */
-#fight-scene {
-    padding: 4rem 1rem;
-    background: linear-gradient(135deg, #0a0a0a, #1a1a1a);
-    margin: 3rem 0;
-    border-top: 3px solid #cc0000;
-    border-bottom: 3px solid #0066cc;
+/* --- Reset & Base --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.arena {
-    position: relative;
-    width: 100%;
-    max-width: 800px;
-    height: 300px;
-    margin: 2rem auto;
+body {
+    font-family: "Inter", Arial, sans-serif;
+    background: #fff;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* --- Navigation --- */
+nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: 
-        radial-gradient(circle at 50% 50%, rgba(0,0,0,0.8) 0%, rgba(20,20,20,0.9) 70%),
-        linear-gradient(to bottom, #111 0%, #222 100%);
-    border-radius: 20px;
-    padding: 0 3rem;
-    border: 4px solid #333;
-    overflow: hidden;
-    box-shadow: 
-        0 20px 40px rgba(0,0,0,0.6),
-        inset 0 0 60px rgba(255,255,255,0.05);
+    padding: 1rem 2rem;
+    background: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: background 0.3s;
 }
 
-/* Boden mit Textur */
-.arena::before {
+nav.scrolled {
+    background: #cc0000;
+}
+
+.logo {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #cc0000;
+    transition: color 0.3s;
+}
+
+nav.scrolled .logo {
+    color: #fff;
+}
+
+.menu-toggle {
+    display: none;
+    font-size: 1.8rem;
+    background: none;
+    border: none;
+    color: #cc0000;
+    cursor: pointer;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #cc0000;
+    font-weight: 600;
+    padding: 0.3rem 0.5rem;
+    border-radius: 8px;
+    transition: background 0.3s, color 0.3s;
+}
+
+.nav-links a:hover {
+    background: #cc0000;
+    color: #fff;
+}
+
+/* --- Header --- */
+header {
+    min-height: 90vh;
+    background: linear-gradient(135deg, #cc0000, #ff3333);
+    color: white;
+    text-align: center;
+    padding: 4rem 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Stelle sicher, dass Header-Inhalt über Icons liegt */
+header h1,
+header p,
+header .button {
+    position: relative;
+    z-index: 2;
+}
+
+header::after {
     content: "";
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: 
-        linear-gradient(90deg, transparent 95%, rgba(255,255,255,0.05) 100%),
-        linear-gradient(0deg, transparent 95%, rgba(255,255,255,0.05) 100%);
-    background-size: 50px 50px;
-    opacity: 0.3;
+    width: 200%;
+    height: 200%;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 50%;
+    top: -50%;
+    left: -50%;
+    transform: rotate(45deg);
     z-index: 1;
 }
 
-.fighter {
-    position: relative;
-    font-weight: 900;
-    color: white;
-    padding: 2rem 3rem;
-    border-radius: 15px;
-    font-size: 2.2rem;
-    text-shadow: 
-        2px 2px 4px rgba(0,0,0,0.8),
-        0 0 20px currentColor;
-    z-index: 5;
-    min-width: 200px;
-    text-align: center;
-    letter-spacing: 1px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-    border: 3px solid rgba(255,255,255,0.2);
-    overflow: hidden;
-    transition: all 0.3s ease;
+header h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
 }
 
-.fighter::before {
+header p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    max-width: 700px;
+}
+
+header .button {
+    display: inline-block;
+    background: #fff;
+    color: #cc0000;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.3s;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+    z-index: 2;
+}
+
+header .button:hover {
+    background: #ffcccc;
+    transform: translateY(-3px) scale(1.05);
+}
+
+/* --- Sections --- */
+section {
+    padding: 5rem 1.5rem;
+    max-width: 1600px;
+    margin: auto;
+    text-align: center;
+    background: #fff;
+}
+
+section:nth-child(even) {
+    background: #f9f9f9;
+}
+
+section h2 {
+    font-size: 2.5rem;
+    color: #cc0000;
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+section h2::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: #cc0000;
+    margin: 0.5rem auto 0;
+    border-radius: 2px;
+}
+
+.contact-description {
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* --- Cards --- */
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.card {
+    background: #fff;
+    width: 700px;
+    max-width: 90%;
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    border: 2px solid #cc0000;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+}
+
+.card h3 {
+    color: #cc0000;
+    margin-bottom: 1rem;
+}
+
+.card p {
+    color: #555;
+}
+
+/* --- Video Thumbnail --- */
+.video-thumb {
+    width: 100%;
+    border-radius: 15px;
+    margin-top: 1rem;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+    border: 2px solid #cc0000;
+}
+
+.video-thumb:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+/* --- Buttons --- */
+.button {
+    display: inline-block;
+    background: #cc0000;
+    color: #fff;
+    padding: 0.8rem 1.5rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    border: 2px solid #cc0000;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+.button:hover {
+    background: #fff;
+    color: #cc0000;
+    transform: translateY(-3px) scale(1.05);
+}
+
+/* --- Contact Buttons --- */
+.contact-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+}
+
+/* --- Email Buttons --- */
+.email-button {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    background: white;
+    color: #333;
+    padding: 1.2rem 2rem;
+    border-radius: 15px;
+    text-decoration: none;
+    font-weight: 600;
+    border: 2px solid #cc0000;
+    transition: all 0.3s;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    min-width: 280px;
+    max-width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.email-button::before {
     content: "";
     position: absolute;
-    top: -10px;
-    left: -10px;
-    right: -10px;
-    bottom: -10px;
-    background: linear-gradient(45deg, 
-        transparent 30%, 
-        rgba(255,255,255,0.1) 50%, 
-        transparent 70%);
-    animation: shine 3s infinite linear;
-    z-index: -1;
-}
-
-@keyframes shine {
-    0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
-    100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
-}
-
-.creativity {
-    background: linear-gradient(135deg, 
-        #0066cc 0%, 
-        #3399ff 30%, 
-        #0066cc 70%, 
-        #004488 100%);
-    box-shadow: 
-        0 10px 25px rgba(0, 102, 204, 0.5),
-        inset 0 0 30px rgba(255,255,255,0.3);
-    animation: pulse-blue 2s infinite alternate;
-}
-
-.technology {
-    background: linear-gradient(135deg, 
-        #cc0000 0%, 
-        #ff3333 30%, 
-        #cc0000 70%, 
-        #880000 100%);
-    box-shadow: 
-        0 10px 25px rgba(204, 0, 0, 0.5),
-        inset 0 0 30px rgba(255,255,255,0.3);
-    animation: pulse-red 2s infinite alternate;
-}
-
-@keyframes pulse-blue {
-    0% { box-shadow: 0 10px 25px rgba(0, 102, 204, 0.5); }
-    100% { box-shadow: 0 15px 35px rgba(0, 102, 204, 0.8); }
-}
-
-@keyframes pulse-red {
-    0% { box-shadow: 0 10px 25px rgba(204, 0, 0, 0.5); }
-    100% { box-shadow: 0 15px 35px rgba(204, 0, 0, 0.8); }
-}
-
-/* === VERBESSERTE SCHWERTER === */
-.sword-layer {
-    position: absolute;
-    width: 100%;
-    height: 100%;
     top: 0;
     left: 0;
-    pointer-events: none;
-    z-index: 10;
-}
-
-.sword {
-    position: absolute;
-    width: 8px;
-    height: 180px;
-    top: 50%;
-    transform: translateY(-50%);
-    transform-origin: bottom center;
-    z-index: 10;
-    border-radius: 4px;
-    box-shadow: 
-        0 0 20px rgba(255,255,255,0.3),
-        0 0 40px rgba(255,215,0,0.2);
-    transition: all 0.3s ease;
-}
-
-/* Linkes Schwert (Blau) */
-.creativity .sword {
-    left: 120px;
-    background: linear-gradient(
-        to top,
-        #003366 0%,
-        #0066cc 20%,
-        #66b3ff 50%,
-        #ffffff 80%,
-        #66b3ff 100%
-    );
-    border-left: 2px solid rgba(255,255,255,0.8);
-    border-right: 2px solid rgba(0,0,0,0.3);
-}
-
-/* Rechtes Schwert (Rot) */
-.technology .sword {
-    right: 120px;
-    background: linear-gradient(
-        to top,
-        #660000 0%,
-        #cc0000 20%,
-        #ff6666 50%,
-        #ffffff 80%,
-        #ff6666 100%
-    );
-    border-left: 2px solid rgba(255,255,255,0.8);
-    border-right: 2px solid rgba(0,0,0,0.3);
-}
-
-/* Schwertgriffe */
-.sword::before {
-    content: "";
-    position: absolute;
-    bottom: -15px;
-    left: -8px;
-    width: 24px;
-    height: 30px;
-    background: linear-gradient(45deg, #8B4513, #A0522D, #8B4513);
-    border-radius: 5px;
-    z-index: 11;
-    box-shadow: 0 0 10px rgba(0,0,0,0.5);
-}
-
-/* Schwertknauf */
-.sword::after {
-    content: "";
-    position: absolute;
-    bottom: -20px;
-    left: 0;
-    width: 8px;
-    height: 20px;
-    background: linear-gradient(to bottom, #FFD700, #B8860B);
-    border-radius: 2px;
-    z-index: 11;
-}
-
-/* === VERBESSERTE ANIMATIONEN === */
-@keyframes clashLeft {
-    0% { 
-        transform: translateY(-50%) rotate(0deg) translateX(0); 
-    }
-    30% { 
-        transform: translateY(-50%) rotate(-30deg) translateX(-30px); 
-        filter: brightness(1.5);
-    }
-    50% { 
-        transform: translateY(-50%) rotate(45deg) translateX(150px); 
-        filter: brightness(2.5);
-    }
-    70% { 
-        transform: translateY(-50%) rotate(0deg) translateX(0); 
-        filter: brightness(1.5);
-    }
-    100% { 
-        transform: translateY(-50%) rotate(0deg) translateX(0); 
-        filter: brightness(1);
-    }
-}
-
-@keyframes clashRight {
-    0% { 
-        transform: translateY(-50%) rotate(0deg) translateX(0); 
-    }
-    30% { 
-        transform: translateY(-50%) rotate(30deg) translateX(30px); 
-        filter: brightness(1.5);
-    }
-    50% { 
-        transform: translateY(-50%) rotate(-45deg) translateX(-150px); 
-        filter: brightness(2.5);
-    }
-    70% { 
-        transform: translateY(-50%) rotate(0deg) translateX(0); 
-        filter: brightness(1.5);
-    }
-    100% { 
-        transform: translateY(-50%) rotate(0deg) translateX(0); 
-        filter: brightness(1);
-    }
-}
-
-/* === VERBESSERTE FUNKEN === */
-.spark {
-    position: absolute;
-    width: 8px;
-    height: 8px;
-    background: radial-gradient(circle, #ffd700 0%, #ff9900 70%, transparent 100%);
-    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #cc0000, #ff3333);
     opacity: 0;
-    z-index: 20;
-    box-shadow: 0 0 20px #ff9900;
-    animation: spark 0.8s ease-out forwards;
+    transition: opacity 0.3s;
+    z-index: 1;
+}
+
+.email-button:hover::before {
+    opacity: 1;
+}
+
+.email-button i, .email-button span, .email-button .email-label {
+    position: relative;
+    z-index: 2;
+    transition: color 0.3s;
+}
+
+.email-button:hover i, .email-button:hover span, .email-button:hover .email-label {
+    color: white;
+}
+
+.email-button .email-icon {
+    font-size: 1.5rem;
+    color: #cc0000;
+    transition: color 0.3s;
+}
+
+.email-button .email-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    flex-grow: 1;
+}
+
+.email-button .email-label {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 0.2rem;
+    font-weight: 500;
+}
+
+.email-button .email-address {
+    font-size: 1rem;
+    color: #333;
+    font-weight: 600;
+    word-break: break-all;
+}
+
+.email-button .arrow-icon {
+    color: #666;
+    transition: color 0.3s;
+}
+
+.email-button.private {
+    border-color: #cc0000;
+}
+
+.email-button.private .email-icon {
+    color: #cc0000;
+}
+
+.email-button.public {
+    border-color: #0066cc;
+}
+
+.email-button.public .email-icon {
+    color: #0066cc;
+}
+
+.email-button.public::before {
+    background: linear-gradient(135deg, #0066cc, #3399ff);
+}
+
+.email-button:hover {
+    transform: translateY(-5px) scale(1.03);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+/* --- Footer --- */
+footer {
+    background: #cc0000;
+    color: white;
+    text-align: center;
+    padding: 2.5rem 1rem;
+    border-top: 3px solid #fff;
+    font-size: 0.95rem;
+}
+
+/* === FUNKEN ANIMATION === */
+.spark {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: #ffd700;
+  border-radius: 50%;
+  opacity: 0.8;
+  animation: spark 0.6s ease-out forwards;
 }
 
 @keyframes spark {
-    0% {
-        transform: translate(0, 0) scale(1);
-        opacity: 1;
-    }
-    50% {
-        transform: translate(var(--x), var(--y)) scale(1.5);
-        opacity: 0.8;
-    }
-    100% {
-        transform: translate(calc(var(--x) * 1.5), calc(var(--y) * 1.5)) scale(0);
-        opacity: 0;
-    }
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(var(--x), var(--y)) scale(0);
+    opacity: 0;
+  }
 }
 
-/* Schockwelle-Effekt */
-@keyframes shockwave {
-    0% {
-        width: 10px;
-        height: 10px;
-        opacity: 0.8;
-        border: 2px solid rgba(255, 215, 0, 0.8);
-    }
-    100% {
-        width: 300px;
-        height: 300px;
-        opacity: 0;
-        border: 1px solid rgba(255, 215, 0, 0);
-    }
+/* === KAMPF SZENE STYLES === */
+.arena {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  height: 200px;
+  margin: 2rem auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(to bottom, #f0f0f0, #e0e0e0);
+  border-radius: 15px;
+  padding: 0 2rem;
+  border: 3px solid #cc0000;
+  overflow: hidden;
 }
 
-/* === RESPONSIVE DESIGN === */
+.fighter {
+  position: relative;
+  font-weight: bold;
+  color: white;
+  padding: 1.5rem 2.5rem;
+  border-radius: 10px;
+  font-size: 1.8rem;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+  z-index: 2;
+}
+
+.creativity {
+  background: linear-gradient(135deg, #0066cc, #3399ff);
+  box-shadow: 0 6px 15px rgba(0, 102, 204, 0.4);
+}
+
+.technology {
+  background: linear-gradient(135deg, #cc0000, #ff3333);
+  box-shadow: 0 6px 15px rgba(204, 0, 0, 0.4);
+}
+
+.sword-layer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+
+/* VERBESSERTE SCHWERTER - mehr wie echte Schwerter */
+.sword {
+  position: absolute;
+  width: 12px;
+  height: 120px;
+  background: linear-gradient(to top, 
+    #2c3e50 0%, 
+    #7f8c8d 30%, 
+    #bdc3c7 60%, 
+    #ecf0f1 85%,
+    #f39c12 100%
+  );
+  border-radius: 4px 4px 8px 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  transform-origin: bottom center;
+  box-shadow: 
+    0 0 15px rgba(0,0,0,0.6),
+    0 0 5px rgba(255,255,255,0.3) inset,
+    2px 2px 4px rgba(0,0,0,0.4);
+  
+  /* Schwert-Griff hinzufügen */
+  border-top: 15px solid #8b4513;
+  border-bottom: 10px solid #654321;
+  
+  /* Schwertspitze */
+  z-index: 3;
+}
+
+/* Schwertspitze für beide Schwerter */
+.sword::before {
+  content: '';
+  position: absolute;
+  top: -15px;
+  left: 0;
+  width: 100%;
+  height: 20px;
+  background: linear-gradient(to top, #f39c12, #e74c3c);
+  border-radius: 2px 2px 0 0;
+  clip-path: polygon(0% 0%, 100% 0%, 50% 100%);
+}
+
+/* Klingenglanz */
+.sword::after {
+  content: '';
+  position: absolute;
+  top: 5px;
+  left: -2px;
+  width: calc(100% + 4px);
+  height: calc(100% - 25px);
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255,255,255,0.8) 50%,
+    transparent 100%
+  );
+  border-radius: 2px;
+  z-index: 1;
+}
+
+/* Für das rechte Schwert (Technology) zusätzliche Effekte */
+.technology .sword {
+  background: linear-gradient(to top, 
+    #2c3e50 0%, 
+    #7f8c8d 30%, 
+    #bdc3c7 60%, 
+    #ecf0f1 85%,
+    #e74c3c 100%
+  );
+  
+  border-top: 15px solid #5D4037;
+  border-bottom: 10px solid #4E342E;
+}
+
+.technology .sword::before {
+  background: linear-gradient(to top, #e74c3c, #c0392b);
+}
+
+/* Für das linke Schwert (Creativity) */
+.creativity .sword {
+  background: linear-gradient(to top, 
+    #2c3e50 0%, 
+    #7f8c8d 30%, 
+    #bdc3c7 60%, 
+    #ecf0f1 85%,
+    #3498db 100%
+  );
+  
+  border-top: 15px solid #2980b9;
+  border-bottom: 10px solid #1f639b;
+}
+
+.creativity .sword::before {
+  background: linear-gradient(to top, #3498db, #2980b9);
+}
+
+/* Animationen UNVERÄNDERT */
+@keyframes clashLeft {
+  0%, 100% { transform: translateY(-50%) rotate(0deg); }
+  50% { transform: translateY(-50%) translateX(100px) rotate(45deg); }
+}
+
+@keyframes clashRight {
+  0%, 100% { transform: translateY(-50%) rotate(0deg); }
+  50% { transform: translateY(-50%) translateX(-100px) rotate(-45deg); }
+}
+
+/* --- Responsive --- */
 @media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background: #fff;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        border-top: 2px solid #cc0000;
+    }
+
+    .nav-links.show {
+        display: flex;
+    }
+
+    .nav-links li {
+        margin: 1rem 0;
+        text-align: center;
+    }
+
+    header h1 {
+        font-size: 2.2rem;
+    }
+
+    header p {
+        font-size: 1rem;
+    }
+
+    .cards {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card {
+        width: 90%;
+    }
+
+    .contact-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .email-button {
+        width: 100%;
+        max-width: 350px;
+        min-width: auto;
+    }
+    
     .arena {
-        height: 200px;
-        max-width: 95%;
+        height: 150px;
+        max-width: 90%;
         padding: 0 1rem;
     }
     
     .fighter {
         padding: 1rem 1.5rem;
-        font-size: 1.6rem;
-        min-width: 150px;
-    }
-    
-    .sword {
-        height: 140px;
-        width: 6px;
-    }
-    
-    .creativity .sword {
-        left: 80px;
-    }
-    
-    .technology .sword {
-        right: 80px;
-    }
-}
-
-@media (max-width: 480px) {
-    .arena {
-        height: 180px;
-        flex-direction: column;
-        justify-content: center;
-        gap: 2rem;
-    }
-    
-    .fighter {
         font-size: 1.4rem;
-        padding: 0.8rem 1.2rem;
-        min-width: 120px;
     }
     
     .sword {
-        height: 120px;
+        width: 10px;
+        height: 100px;
+        border-top: 12px solid #8b4513;
+        border-bottom: 8px solid #654321;
     }
     
-    .creativity .sword {
-        left: 60px;
-        top: 40%;
+    .sword::before {
+        top: -12px;
+        height: 16px;
     }
     
-    .technology .sword {
-        right: 60px;
-        top: 60%;
+    .sword::after {
+        top: 4px;
+        height: calc(100% - 20px);
     }
-}
-
-/* Title für die Kampfszene */
-#fight-scene h2 {
-    text-align: center;
-    color: #fff;
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-    text-shadow: 0 0 10px rgba(255,255,255,0.5);
-}
-
-#fight-scene h2::after {
-    background: linear-gradient(90deg, #0066cc, #cc0000);
-    width: 200px;
-    height: 4px;
-    margin: 1rem auto;
-}
-
-/* Untertitel */
-.fight-subtitle {
-    text-align: center;
-    color: #aaa;
-    font-size: 1.1rem;
-    margin-bottom: 2rem;
-    font-style: italic;
 }
