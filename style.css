@@ -364,6 +364,97 @@ footer {
     font-size: 0.95rem;
 }
 
+/* === FUNKEN ANIMATION === */
+.spark {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: #ffd700;
+  border-radius: 50%;
+  opacity: 0.8;
+  animation: spark 0.6s ease-out forwards;
+}
+
+@keyframes spark {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(var(--x), var(--y)) scale(0);
+    opacity: 0;
+  }
+}
+
+/* === KAMPF SZENE STYLES === */
+.arena {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  height: 200px;
+  margin: 2rem auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(to bottom, #f0f0f0, #e0e0e0);
+  border-radius: 15px;
+  padding: 0 2rem;
+  border: 3px solid #cc0000;
+  overflow: hidden;
+}
+
+.fighter {
+  position: relative;
+  font-weight: bold;
+  color: white;
+  padding: 1.5rem 2.5rem;
+  border-radius: 10px;
+  font-size: 1.8rem;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+  z-index: 2;
+}
+
+.creativity {
+  background: linear-gradient(135deg, #0066cc, #3399ff);
+  box-shadow: 0 6px 15px rgba(0, 102, 204, 0.4);
+}
+
+.technology {
+  background: linear-gradient(135deg, #cc0000, #ff3333);
+  box-shadow: 0 6px 15px rgba(204, 0, 0, 0.4);
+}
+
+.sword-layer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+
+.sword {
+  position: absolute;
+  width: 4px;
+  height: 120px;
+  background: linear-gradient(to top, #666, #999);
+  border-radius: 2px;
+  top: 50%;
+  transform: translateY(-50%);
+  transform-origin: bottom center;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+@keyframes clashLeft {
+  0%, 100% { transform: translateY(-50%) rotate(0deg); }
+  50% { transform: translateY(-50%) translateX(100px) rotate(45deg); }
+}
+
+@keyframes clashRight {
+  0%, 100% { transform: translateY(-50%) rotate(0deg); }
+  50% { transform: translateY(-50%) translateX(-100px) rotate(-45deg); }
+}
+
 /* --- Responsive --- */
 @media (max-width: 768px) {
     .menu-toggle {
@@ -418,26 +509,15 @@ footer {
         max-width: 350px;
         min-width: auto;
     }
-    /* === FUNKEN === */
-.spark {
-  position: absolute;
-  width: 6px;
-  height: 6px;
-  background: #ffd700;
-  border-radius: 50%;
-  opacity: 0.8;
-  animation: spark 0.6s ease-out forwards;
-}
-
-@keyframes spark {
-  0% {
-    transform: translate(0, 0) scale(1);
-    opacity: 1;
-  }
-  100% {
-    transform: translate(var(--x), var(--y)) scale(0);
-    opacity: 0;
-  }
-}
-
+    
+    .arena {
+        height: 150px;
+        max-width: 90%;
+        padding: 0 1rem;
+    }
+    
+    .fighter {
+        padding: 1rem 1.5rem;
+        font-size: 1.4rem;
+    }
 }
