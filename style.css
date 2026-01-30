@@ -525,6 +525,14 @@ footer {
   margin-top: -5px;
   border-radius: 2px;
 }
+/* Knauf - kleiner */
+.sword .pommel {
+  width: 10px;
+  height: 10px;
+  background: radial-gradient(circle, #999, #555);
+  border-radius: 50%;
+  margin-top: 3px;
+}
 
 /* Griff - kleiner */
 .sword .handle {
@@ -535,14 +543,7 @@ footer {
   margin-top: 3px;
 }
 
-/* Knauf - kleiner */
-.sword .pommel {
-  width: 10px;
-  height: 10px;
-  background: radial-gradient(circle, #999, #555);
-  border-radius: 50%;
-  margin-top: 3px;
-}
+
 
 /* Animationen anpassen */
 @keyframes clashLeft {
