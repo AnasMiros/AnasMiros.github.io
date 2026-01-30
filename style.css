@@ -439,7 +439,7 @@ footer {
 .arena {
   position: relative;
   width: 100%;
-  max-width: 600px;
+  max-width: 400px;
   height: 200px;
   margin: 2rem auto;
   display: flex;
@@ -448,7 +448,7 @@ footer {
   background: linear-gradient(to bottom, #f0f0f0, #e0e0e0);
   border-radius: 15px;
   padding: 0 2rem;
-  border: none;
+  border: 3px solid transparent;
   overflow: hidden;
 }
 
