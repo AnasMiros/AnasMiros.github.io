@@ -484,7 +484,7 @@ footer {
   position: absolute;
   width: 10px;
   height: 140px;
-  top: 50%;
+  top: 30%;
   left: 0;
   transform-origin: bottom center;
   display: flex;
