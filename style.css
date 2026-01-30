@@ -1,370 +1,350 @@
 /* --- Reset & Base --- */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: "Inter", Arial, sans-serif;
-    background: #fff;
-    color: #333;
-    line-height: 1.6;
+  font-family: "Inter", Arial, sans-serif;
+  background: #fff;
+  color: #333;
+  line-height: 1.6;
 }
 
 /* --- Navigation --- */
 nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 2rem;
-    background: #fff;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    transition: background 0.3s;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: background 0.3s;
 }
 
 nav.scrolled {
-    background: #cc0000;
+  background: #cc0000;
 }
 
 .logo {
-    font-size: 1.6rem;
-    font-weight: 700;
-    color: #cc0000;
-    transition: color 0.3s;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #cc0000;
+  transition: color 0.3s;
 }
 
 nav.scrolled .logo {
-    color: #fff;
+  color: #fff;
 }
 
 .menu-toggle {
-    display: none;
-    font-size: 1.8rem;
-    background: none;
-    border: none;
-    color: #cc0000;
-    cursor: pointer;
+  display: none;
+  font-size: 1.8rem;
+  background: none;
+  border: none;
+  color: #cc0000;
+  cursor: pointer;
 }
 
 .nav-links {
-    display: flex;
-    list-style: none;
-    gap: 2rem;
+  display: flex;
+  list-style: none;
+  gap: 2rem;
 }
 
 .nav-links a {
-    text-decoration: none;
-    color: #cc0000;
-    font-weight: 600;
-    padding: 0.3rem 0.5rem;
-    border-radius: 8px;
-    transition: background 0.3s, color 0.3s;
+  text-decoration: none;
+  color: #cc0000;
+  font-weight: 600;
+  padding: 0.3rem 0.5rem;
+  border-radius: 8px;
+  transition: background 0.3s, color 0.3s;
 }
 
 .nav-links a:hover {
-    background: #cc0000;
-    color: #fff;
+  background: #cc0000;
+  color: #fff;
 }
 
 /* --- Header --- */
 header {
-    min-height: 90vh;
-    background: linear-gradient(135deg, #cc0000, #ff3333);
-    color: white;
-    text-align: center;
-    padding: 4rem 1rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    overflow: hidden;
+  min-height: 90vh;
+  background: linear-gradient(135deg, #cc0000, #ff3333);
+  color: white;
+  text-align: center;
+  padding: 4rem 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
 }
 
-/* Stelle sicher, dass Header-Inhalt über Icons liegt */
 header h1,
 header p,
 header .button {
-    position: relative;
-    z-index: 2;
+  position: relative;
+  z-index: 2;
 }
 
 header::after {
-    content: "";
-    position: absolute;
-    width: 200%;
-    height: 200%;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 50%;
-    top: -50%;
-    left: -50%;
-    transform: rotate(45deg);
-    z-index: 1;
+  content: "";
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 50%;
+  top: -50%;
+  left: -50%;
+  transform: rotate(45deg);
+  z-index: 1;
 }
 
 header h1 {
-    font-size: 3rem;
-    margin-bottom: 1rem;
+  font-size: 3rem;
+  margin-bottom: 1rem;
 }
 
 header p {
-    font-size: 1.2rem;
-    margin-bottom: 2rem;
-    max-width: 700px;
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  max-width: 700px;
 }
 
 header .button {
-    display: inline-block;
-    background: #fff;
-    color: #cc0000;
-    padding: 1rem 2rem;
-    border-radius: 50px;
-    font-weight: 700;
-    text-decoration: none;
-    transition: all 0.3s;
-    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
-    z-index: 2;
+  display: inline-block;
+  background: #fff;
+  color: #cc0000;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.3s;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
 }
 
 header .button:hover {
-    background: #ffcccc;
-    transform: translateY(-3px) scale(1.05);
+  background: #ffcccc;
+  transform: translateY(-3px) scale(1.05);
 }
 
 /* --- Sections --- */
 section {
-    padding: 5rem 1.5rem;
-    max-width: 1600px;
-    margin: auto;
-    text-align: center;
-    background: #fff;
+  padding: 5rem 1.5rem;
+  max-width: 1600px;
+  margin: auto;
+  text-align: center;
+  background: #fff;
 }
 
-section:nth-child(even) {
-    background: #f9f9f9;
+section:nth-of-type(even) {
+  background: #f9f9f9;
 }
 
 section h2 {
-    font-size: 2.5rem;
-    color: #cc0000;
-    margin-bottom: 2rem;
-    position: relative;
+  font-size: 2.5rem;
+  color: #cc0000;
+  margin-bottom: 2rem;
+  position: relative;
 }
 
 section h2::after {
-    content: "";
-    display: block;
-    width: 60px;
-    height: 4px;
-    background: #cc0000;
-    margin: 0.5rem auto 0;
-    border-radius: 2px;
+  content: "";
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: #cc0000;
+  margin: 0.5rem auto 0;
+  border-radius: 2px;
 }
 
 .contact-description {
-    margin-bottom: 2rem;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
+  margin-bottom: 2rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* --- Cards --- */
 .cards {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
 }
 
 .card {
-    background: #fff;
-    width: 700px;
-    max-width: 90%;
-    padding: 2rem;
-    border-radius: 20px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-    border: 2px solid #cc0000;
-    transition: transform 0.3s, box-shadow 0.3s;
+  background: #fff;
+  width: 700px;
+  max-width: 90%;
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  border: 2px solid #cc0000;
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+  transform: translateY(-8px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.2);
 }
 
 .card h3 {
-    color: #cc0000;
-    margin-bottom: 1rem;
+  color: #cc0000;
+  margin-bottom: 1rem;
 }
 
 .card p {
-    color: #555;
+  color: #555;
 }
 
 /* --- Video Thumbnail --- */
 .video-thumb {
-    width: 100%;
-    border-radius: 15px;
-    margin-top: 1rem;
-    cursor: pointer;
-    transition: transform 0.3s, box-shadow 0.3s;
-    border: 2px solid #cc0000;
+  width: 100%;
+  border-radius: 15px;
+  margin-top: 1rem;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+  border: 2px solid #cc0000;
 }
 
 .video-thumb:hover {
-    transform: scale(1.05);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  transform: scale(1.05);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
 }
 
 /* --- Buttons --- */
 .button {
-    display: inline-block;
-    background: #cc0000;
-    color: #fff;
-    padding: 0.8rem 1.5rem;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: 600;
-    border: 2px solid #cc0000;
-    transition: all 0.3s;
-    cursor: pointer;
+  display: inline-block;
+  background: #cc0000;
+  color: #fff;
+  padding: 0.8rem 1.5rem;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  border: 2px solid #cc0000;
+  transition: all 0.3s;
+  cursor: pointer;
 }
 
 .button:hover {
-    background: #fff;
-    color: #cc0000;
-    transform: translateY(-3px) scale(1.05);
+  background: #fff;
+  color: #cc0000;
+  transform: translateY(-3px) scale(1.05);
 }
 
 /* --- Contact Buttons --- */
 .contact-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 1.5rem;
-    flex-wrap: wrap;
-    margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
 }
 
 /* --- Email Buttons --- */
 .email-button {
-    display: flex;
-    align-items: center;
-    gap: 0.8rem;
-    background: white;
-    color: #333;
-    padding: 1.2rem 2rem;
-    border-radius: 15px;
-    text-decoration: none;
-    font-weight: 600;
-    border: 2px solid #cc0000;
-    transition: all 0.3s;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    min-width: 280px;
-    max-width: 100%;
-    position: relative;
-    overflow: hidden;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  background: white;
+  color: #333;
+  padding: 1.2rem 2rem;
+  border-radius: 15px;
+  text-decoration: none;
+  font-weight: 600;
+  border: 2px solid #cc0000;
+  transition: all 0.3s;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  min-width: 280px;
+  max-width: 100%;
+  position: relative;
+  overflow: hidden;
 }
 
 .email-button::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, #cc0000, #ff3333);
-    opacity: 0;
-    transition: opacity 0.3s;
-    z-index: 1;
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #cc0000, #ff3333);
+  opacity: 0;
+  transition: opacity 0.3s;
+  z-index: 1;
 }
 
 .email-button:hover::before {
-    opacity: 1;
+  opacity: 1;
 }
 
-.email-button i, .email-button span, .email-button .email-label {
-    position: relative;
-    z-index: 2;
-    transition: color 0.3s;
+.email-button i,
+.email-button span,
+.email-button .email-label {
+  position: relative;
+  z-index: 2;
+  transition: color 0.3s;
 }
 
-.email-button:hover i, .email-button:hover span, .email-button:hover .email-label {
-    color: white;
+.email-button:hover i,
+.email-button:hover span,
+.email-button:hover .email-label {
+  color: white;
 }
 
 .email-button .email-icon {
-    font-size: 1.5rem;
-    color: #cc0000;
-    transition: color 0.3s;
+  font-size: 1.5rem;
+  color: #cc0000;
 }
 
 .email-button .email-content {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    text-align: left;
-    flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  flex-grow: 1;
 }
 
 .email-button .email-label {
-    font-size: 0.9rem;
-    color: #666;
-    margin-bottom: 0.2rem;
-    font-weight: 500;
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 0.2rem;
+  font-weight: 500;
 }
 
 .email-button .email-address {
-    font-size: 1rem;
-    color: #333;
-    font-weight: 600;
-    word-break: break-all;
+  font-size: 1rem;
+  color: #333;
+  font-weight: 600;
+  word-break: break-all;
 }
 
 .email-button .arrow-icon {
-    color: #666;
-    transition: color 0.3s;
-}
-
-.email-button.private {
-    border-color: #cc0000;
-}
-
-.email-button.private .email-icon {
-    color: #cc0000;
+  color: #666;
 }
 
 .email-button.public {
-    border-color: #0066cc;
-}
-
-.email-button.public .email-icon {
-    color: #0066cc;
+  border-color: #0066cc;
 }
 
 .email-button.public::before {
-    background: linear-gradient(135deg, #0066cc, #3399ff);
-}
-
-.email-button:hover {
-    transform: translateY(-5px) scale(1.03);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  background: linear-gradient(135deg, #0066cc, #3399ff);
 }
 
 /* --- Footer --- */
 footer {
-    background: #cc0000;
-    color: white;
-    text-align: center;
-    padding: 2.5rem 1rem;
-    border-top: 3px solid #fff;
-    font-size: 0.95rem;
+  background: #cc0000;
+  color: white;
+  text-align: center;
+  padding: 2.5rem 1rem;
+  border-top: 3px solid #fff;
+  font-size: 0.95rem;
 }
 
-/* === FUNKEN ANIMATION === */
+/* === FUNKEN === */
 .spark {
   position: absolute;
   width: 6px;
@@ -386,7 +366,7 @@ footer {
   }
 }
 
-/* === KAMPF SZENE STYLES === */
+/* === KAMPF SZENE === */
 .arena {
   position: relative;
   width: 100%;
@@ -424,12 +404,10 @@ footer {
   box-shadow: 0 6px 15px rgba(204, 0, 0, 0.4);
 }
 
+/* Sword */
 .sword-layer {
   position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
+  inset: 0;
   pointer-events: none;
 }
 
@@ -444,6 +422,7 @@ footer {
   flex-direction: column;
   align-items: center;
 }
+
 /* Klinge */
 .sword::before {
   content: "";
@@ -482,79 +461,105 @@ footer {
   margin-top: 4px;
 }
 
+/* Animationen */
 @keyframes clashLeft {
-  0%, 100% { transform: translateY(-50%) rotate(0deg); }
-  50% { transform: translateY(-50%) translateX(100px) rotate(45deg); }
+  0%, 100% {
+    transform: translateY(-50%) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-50%) translateX(120px) rotate(45deg);
+  }
 }
 
 @keyframes clashRight {
-  0%, 100% { transform: translateY(-50%) rotate(0deg); }
-  50% { transform: translateY(-50%) translateX(-100px) rotate(-45deg); }
+  0%, 100% {
+    transform: translateY(-50%) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-50%) translateX(-120px) rotate(-45deg);
+  }
+}
+
+.clash-left {
+  animation: clashLeft 0.9s ease-in-out;
+}
+
+.clash-right {
+  animation: clashRight 0.9s ease-in-out;
 }
 
 /* --- Responsive --- */
 @media (max-width: 768px) {
-    .menu-toggle {
-        display: block;
-    }
 
-    .nav-links {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-        background: #fff;
-        position: absolute;
-        top: 60px;
-        left: 0;
-        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-        border-top: 2px solid #cc0000;
-    }
+  .menu-toggle {
+    display: block;
+  }
 
-    .nav-links.show {
-        display: flex;
-    }
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background: #fff;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    border-top: 2px solid #cc0000;
+  }
 
-    .nav-links li {
-        margin: 1rem 0;
-        text-align: center;
-    }
+  .nav-links.show {
+    display: flex;
+  }
 
-    header h1 {
-        font-size: 2.2rem;
-    }
+  .nav-links li {
+    margin: 1rem 0;
+    text-align: center;
+  }
 
-    header p {
-        font-size: 1rem;
-    }
+  header h1 {
+    font-size: 2.2rem;
+  }
 
-    .cards {
-        flex-direction: column;
-        align-items: center;
-    }
+  header p {
+    font-size: 1rem;
+  }
 
-    .card {
-        width: 90%;
-    }
+  .cards {
+    flex-direction: column;
+    align-items: center;
+  }
 
-    .contact-buttons {
-        flex-direction: column;
-        align-items: center;
-    }
+  .card {
+    width: 90%;
+  }
 
-    .email-button {
-        width: 100%;
-        max-width: 350px;
-        min-width: auto;
-    }
-    
-    .arena {
-        height: 150px;
-        max-width: 90%;
-        padding: 0 1rem;
-    }
-    
-    .fighter {
-        padding: 1rem 1.5rem;
-        font-size: 1.4rem;
-    }
+  .contact-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .email-button {
+    width: 100%;
+    max-width: 350px;
+    min-width: auto;
+  }
+
+  .arena {
+    height: 150px;
+    max-width: 90%;
+    padding: 0 1rem;
+  }
+
+  .fighter {
+    padding: 1rem 1.5rem;
+    font-size: 1.4rem;
+  }
+
+  .sword {
+    height: 120px;
+  }
+
+  .sword::before {
+    height: 75px;
+  }
 }
