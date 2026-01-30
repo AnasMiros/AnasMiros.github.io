@@ -484,7 +484,7 @@ footer {
 .sword {
   position: absolute;
   width: 8px;
-  height: 200px;
+  height: 100px;
   top: 50%;
   transform: translateY(-50%);
   transform-origin: bottom center;
