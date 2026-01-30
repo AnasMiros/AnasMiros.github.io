@@ -495,12 +495,12 @@ footer {
 
 /* Position für linkes Schwert */
 .fighter.creativity .sword {
-  left: -15px;
+  left: 0px;
 }
 
 /* Position für rechtes Schwert */  
 .fighter.technology .sword {
-  right: -15px;
+  right: 0px;
 }
 
 /* Klinge - kleiner */
