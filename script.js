@@ -62,9 +62,9 @@ function createSword(container, side) {
   sword.appendChild(pommel);
 
   if (side === "left") {
-    sword.style.left = "120px";
+    sword.style.left = "90px";
   } else {
-    sword.style.right = "120px";
+    sword.style.right = "90px";
   }
 
   container.appendChild(sword);
@@ -78,7 +78,7 @@ function createSpark() {
   spark.classList.add("spark");
 
   const angle = Math.random() * Math.PI * 2;
-  const distance = 40 + Math.random() * 20;
+  const distance = 30 + Math.random() * 15;
 
   spark.style.setProperty("--x", `${Math.cos(angle) * distance}px`);
   spark.style.setProperty("--y", `${Math.sin(angle) * distance}px`);
@@ -103,7 +103,7 @@ function clash() {
   swordR.classList.add("clash-right");
 
   setTimeout(() => {
-    for (let i = 0; i < 8; i++) createSpark();
+    for (let i = 0; i < 6; i++) createSpark();
   }, 400);
 }
 
