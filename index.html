@@ -915,35 +915,19 @@ footer {
   0%, 100% { transform: translateX(0) rotate(0deg); }
   50% { transform: translateX(-200px) rotate(-45deg); }
 }
-</style>
+<section id="fight-scene">
+  <h2>Creativity vs Technology</h2>
 
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-  const creativity = document.querySelector(".creativity");
-  const technology = document.querySelector(".technology");
+  <div class="arena">
+    <div class="fighter creativity">
+      <span class="label">Creativity</span>
+      <div class="sword-layer"></div>
+    </div>
 
-  // Schwerter als Divs
-  const swordC = document.createElement("div");
-  swordC.classList.add("sword");
-  creativity.appendChild(swordC);
+    <div class="fighter technology">
+      <span class="label">Technology</span>
+      <div class="sword-layer"></div>
+    </div>
+  </div>
+</section>
 
-  const swordT = document.createElement("div");
-  swordT.classList.add("sword");
-  technology.appendChild(swordT);
-
-  function clash() {
-    swordC.style.animation = "clashLeft 1s ease-in-out forwards";
-    swordT.style.animation = "clashRight 1s ease-in-out forwards";
-
-    // Zurücksetzen nach Animation
-    setTimeout(() => {
-      swordC.style.animation = "";
-      swordT.style.animation = "";
-    }, 1000);
-  }
-
-  // Clash alle 2 Sekunden
-  setInterval(clash, 2000);
-});
-</script>
-}
