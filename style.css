@@ -486,7 +486,7 @@ footer {
   width: 8px;
   height: 200px;
   top: 50%;
-  transform: translateY(0%);
+  transform: translateY(-50%);
   transform-origin: bottom center;
   display: flex;
   flex-direction: column;
