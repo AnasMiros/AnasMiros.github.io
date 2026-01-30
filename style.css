@@ -461,6 +461,9 @@ footer {
   font-size: 1.4rem;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
   z-index: 2;
+  height: 60px; /* z.B. feste Höhe */
+  display: flex;
+  align-items: center; /* vertikal zentrieren Text */
 }
 
 .creativity {
@@ -486,7 +489,7 @@ footer {
   width: 8px;
   height: 100px;
   top: 50%;
-  transform: translateY(0%);
+  transform: translateY(-50%);
   transform-origin: bottom center;
   display: flex;
   flex-direction: column;
