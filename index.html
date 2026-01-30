@@ -396,17 +396,21 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function clash() {
+     swordL.style.animation = "none";
+    swordR.style.animation = "none";
+    setTimeout(() => {  
     swordL.style.animation = "clashLeft 0.8s ease-in-out";
     swordR.style.animation = "clashRight 0.8s ease-in-out";
 
     // Dezente Funken beim Aufprall
-    setTimeout(() => {
-      for (let i = 0; i < 5; i++) {
-        createSpark();
-      }
-    }, 400);
-  }
-
+        setTimeout(() => {
+          for (let i = 0; i < 5; i++) {
+            createSpark();
+          }
+        }, 400);
+       }, 10);
+    }
+    clash();
   setInterval(clash, 2500);
 });
 </script>
