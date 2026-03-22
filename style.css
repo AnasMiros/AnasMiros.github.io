@@ -257,6 +257,11 @@ section h2::after {
   border-radius: 10px;
   border: 2px solid #cc0000;
 }
+.Menu-video {
+  width: 100%;
+  border-radius: 10px;
+  border: 2px solid #cc0000;
+}
 
 .video-placeholder {
   background: #f8f9fa;
