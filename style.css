@@ -792,4 +792,17 @@ footer {
   .pommel::before {
     font-size: 4px;
   }
+  .download-btn {
+  margin-top: 1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, #00b894, #00cec9);
+  border: none;
+}
+
+.download-btn:hover {
+  background: linear-gradient(135deg, #019875, #00a8a8);
+  color: white;
+}
 }
